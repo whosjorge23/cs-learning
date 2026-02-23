@@ -220,19 +220,54 @@ while (count < 5) {
   }
 ];
 
+const achievementData = [
+  {
+    id: 'first-steps',
+    title: 'First Steps',
+    icon: '🌱',
+    desc: 'Complete your first lesson.',
+    check: (app) => app.completedLessons.length >= 1
+  },
+  {
+    id: 'fast-learner',
+    title: 'Fast Learner',
+    icon: '🚀',
+    desc: 'Complete 3 lessons.',
+    check: (app) => app.completedLessons.length >= 3
+  },
+  {
+    id: 'perfectionist',
+    title: 'Perfectionist',
+    icon: '🎯',
+    desc: 'Maintain a GPA of 4.0.',
+    check: (app) => app.gpa >= 4.0
+  },
+  {
+    id: 'honor-roll',
+    title: 'Honor Roll',
+    icon: '📜',
+    desc: 'Reach a GPA of 3.5 or higher.',
+    check: (app) => app.gpa >= 3.5
+  }
+];
+
 class App {
   constructor() {
     this.currentLesson = null;
     this.currentQuestionIndex = 0;
     this.score = 0;
     this.gpa = parseFloat(localStorage.getItem('cs-gpa')) || 0;
+    this.completedLessons = JSON.parse(localStorage.getItem('cs-completed-lessons')) || [];
+    this.theme = localStorage.getItem('cs-theme') || 'light';
 
     this.init();
   }
 
   init() {
+    this.applyTheme();
     this.renderHome();
     this.updateGPA();
+    this.renderAchievements();
 
     document.getElementById('btn-back-home').onclick = (e) => {
       e.preventDefault();
@@ -246,6 +281,21 @@ class App {
     document.getElementById('btn-next-question').onclick = () => {
       this.nextQuestion();
     };
+
+    document.getElementById('theme-toggle').onclick = () => {
+      this.toggleTheme();
+    };
+  }
+
+  toggleTheme() {
+    this.theme = this.theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('cs-theme', this.theme);
+    this.applyTheme();
+  }
+
+  applyTheme() {
+    document.documentElement.setAttribute('data-theme', this.theme);
+    document.getElementById('theme-toggle').innerText = this.theme === 'light' ? '🌙' : '☀️';
   }
 
   updateGPA() {
@@ -255,14 +305,20 @@ class App {
 
   renderHome() {
     const list = document.getElementById('course-list');
-    list.innerHTML = lessonData.map(lesson => `
-      <div class="glass-card course-card" onclick="app.showLesson('${lesson.id}')">
-        <div class="course-icon">${lesson.icon}</div>
-        <h3>${lesson.title}</h3>
-        <p>${lesson.shortDesc}</p>
-        <span style="color: var(--primary); font-weight: 600; font-size: 0.8rem;">START LESSON →</span>
-      </div>
-    `).join('');
+    list.innerHTML = lessonData.map(lesson => {
+      const isCompleted = this.completedLessons.includes(lesson.id);
+      return `
+        <div class="glass-card course-card ${isCompleted ? 'completed' : ''}" onclick="app.showLesson('${lesson.id}')">
+          ${isCompleted ? '<div class="completion-badge">Completed</div>' : ''}
+          <div class="course-icon">${lesson.icon}</div>
+          <h3>${lesson.title}</h3>
+          <p>${lesson.shortDesc}</p>
+          <span style="color: var(--primary); font-weight: 600; font-size: 0.8rem;">
+            ${isCompleted ? 'REVIEW LESSON →' : 'START LESSON →'}
+          </span>
+        </div>
+      `;
+    }).join('');
   }
 
   showView(viewId) {
@@ -345,10 +401,35 @@ class App {
     // Update GPA (very simple logic: weighted average)
     this.gpa = (this.gpa + (this.score / total) * 4) / (this.gpa === 0 ? 1 : 1.1);
     if (this.gpa > 4) this.gpa = 4;
+
+    // Save completion
+    if (percentage >= 100 && !this.completedLessons.includes(this.currentLesson.id)) {
+      this.completedLessons.push(this.currentLesson.id);
+      localStorage.setItem('cs-completed-lessons', JSON.stringify(this.completedLessons));
+    }
+
     this.updateGPA();
+    this.renderHome(); // Refresh home grid
+    this.renderAchievements(); // Refresh achievements
 
     document.getElementById('results-score').innerText = `You got ${this.score} out of ${total} correct (${percentage}%).`;
     this.showView('results-view');
+  }
+
+  renderAchievements() {
+    const grid = document.getElementById('achievement-grid');
+    if (!grid) return;
+
+    grid.innerHTML = achievementData.map(ach => {
+      const unlocked = ach.check(this);
+      return `
+        <div class="glass-card achievement-card ${unlocked ? 'unlocked' : ''}">
+          <div class="achievement-icon">${ach.icon}</div>
+          <h4>${ach.title}</h4>
+          <p>${ach.desc}</p>
+        </div>
+      `;
+    }).join('');
   }
 }
 

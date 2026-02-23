@@ -1,15 +1,25 @@
 :root {
   --primary: #6366f1;
   --primary-hover: #4f46e5;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --accent: #10b981;
+  --glass: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
   --bg: #0f172a;
   --surface: #1e293b;
   --surface-hover: #334155;
   --text: #f8fafc;
   --text-muted: #94a3b8;
-  --accent: #10b981;
   --glass: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -47,6 +57,7 @@ header {
   font-weight: 800;
   background: linear-gradient(135deg, var(--primary), #a855f7);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -1px;
 }
@@ -155,8 +166,15 @@ h1 {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .lesson-content {
@@ -221,4 +239,91 @@ h1 {
   background: var(--primary);
   width: 0%;
   transition: width 0.5s ease;
+}
+
+/* Dark Mode Toggle */
+#theme-toggle {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+#theme-toggle:hover {
+  background: var(--surface-hover);
+  transform: scale(1.05);
+}
+
+/* Completion Badge */
+.completion-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--accent);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.course-card.completed {
+  border: 1px solid var(--accent);
+}
+
+.course-card {
+  position: relative;
+}
+
+/* Achievement Section */
+#achievements-section {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.achievement-card {
+  padding: 1.5rem;
+  text-align: center;
+  opacity: 0.5;
+  filter: grayscale(1);
+  transition: var(--transition);
+}
+
+.achievement-card.unlocked {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.achievement-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.achievement-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
