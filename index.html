@@ -15,8 +15,9 @@
   <div class="container">
     <header>
       <div class="logo">CS with Giorgio</div>
-      <nav>
+      <nav style="display: flex; align-items: center; gap: 1.5rem;">
         <span id="gpa-display" style="color: var(--text-muted); font-weight: 600;">GPA: 0.00</span>
+        <button id="theme-toggle" title="Toggle Dark/Light Mode">🌓</button>
       </nav>
     </header>
 
@@ -29,6 +30,14 @@
       <div class="course-grid" id="course-list">
         <!-- Lessons injected by JS -->
       </div>
+
+      <!-- Achievements Section -->
+      <section id="achievements-section">
+        <h2>Your Achievements</h2>
+        <div class="achievement-grid" id="achievement-grid">
+          <!-- Achievements injected by JS -->
+        </div>
+      </section>
     </main>
 
     <!-- Lesson View -->
