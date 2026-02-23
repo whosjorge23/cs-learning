@@ -259,6 +259,7 @@ class App {
     this.gpa = parseFloat(localStorage.getItem('cs-gpa')) || 0;
     this.completedLessons = JSON.parse(localStorage.getItem('cs-completed-lessons')) || [];
     this.theme = localStorage.getItem('cs-theme') || 'light';
+    this.answers = [];
 
     this.init();
   }
@@ -347,6 +348,7 @@ class App {
   startQuiz() {
     this.currentQuestionIndex = 0;
     this.score = 0;
+    this.answers = [];
     this.renderQuestion();
     this.showView('quiz-view');
   }
@@ -382,6 +384,13 @@ class App {
       document.getElementById('quiz-feedback').style.color = '#ef4444';
     }
 
+    this.answers.push({
+      question: question.question,
+      userAnswer: question.options[index],
+      correctAnswer: question.options[question.correct],
+      isCorrect: index === question.correct
+    });
+
     document.getElementById('btn-next-question').style.display = 'inline-flex';
   }
 
@@ -412,6 +421,8 @@ class App {
     this.renderHome(); // Refresh home grid
     this.renderAchievements(); // Refresh achievements
 
+    this.downloadResults();
+
     document.getElementById('results-score').innerText = `You got ${this.score} out of ${total} correct (${percentage}%).`;
     this.showView('results-view');
   }
@@ -430,6 +441,47 @@ class App {
         </div>
       `;
     }).join('');
+  }
+
+  downloadResults() {
+    const total = this.currentLesson.quiz.length;
+    const percentage = ((this.score / total) * 100).toFixed(2);
+    const date = new Date().toLocaleString();
+
+    let answersBreakdown = this.answers.map((ans, i) => `
+Q${i + 1}: ${ans.question}
+Your Answer: ${ans.userAnswer}
+Correct Answer: ${ans.correctAnswer}
+Result: ${ans.isCorrect ? 'CORRECT' : 'WRONG'}
+    `).join('\n');
+
+    const content = `
+COMPUTER SCIENCE TEST RESULTS (.cst)
+=====================================
+Lesson: ${this.currentLesson.title}
+Date: ${date}
+-------------------------------------
+Score: ${this.score} / ${total}
+Percentage: ${percentage}%
+Current GPA: ${this.gpa.toFixed(2)}
+-------------------------------------
+Status: ${percentage >= 100 ? 'PASSED (Mastered)' : 'COMPLETED'}
+=====================================
+
+DETAILED BREAKDOWN:
+${answersBreakdown}
+=====================================
+    `.trim();
+
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${this.currentLesson.id}-results.cst`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
 }
 
