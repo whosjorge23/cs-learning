@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS with Giorgio | Clean Computer Science Learning</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">CS with Giorgio</div>
+      <nav>
+        <span id="gpa-display" style="color: var(--text-muted); font-weight: 600;">GPA: 0.00</span>
+      </nav>
+    </header>
+
+    <!-- Home View -->
+    <main id="home-view" class="view active">
+      <h1>Master Computer Science <br>with <span style="color: var(--primary)">Precision.</span></h1>
+      <p class="tagline">Interactive lessons designed to make complex topics simple. Start your journey into the world
+        of algorithms and data structures today.</p>
+
+      <div class="course-grid" id="course-list">
+        <!-- Lessons injected by JS -->
+      </div>
+    </main>
+
+    <!-- Lesson View -->
+    <section id="lesson-view" class="view">
+      <a href="#" class="btn back-btn" id="btn-back-home">← Back to Courses</a>
+      <div class="lesson-content glass-card">
+        <h2 id="lesson-title" style="font-size: 2.5rem; margin-bottom: 1rem;"></h2>
+        <div id="lesson-body" style="font-size: 1.1rem; color: var(--text-muted)"></div>
+        <div class="progress-container">
+          <div class="progress-bar" id="lesson-progress"></div>
+        </div>
+        <button class="btn btn-primary" id="btn-start-quiz">Take the Quiz</button>
+      </div>
+    </section>
+
+    <!-- Quiz View -->
+    <section id="quiz-view" class="view">
+      <div class="lesson-content glass-card">
+        <h3 id="quiz-question" style="font-size: 1.5rem; margin-bottom: 2rem;"></h3>
+        <div class="quiz-options" id="quiz-options-container">
+          <!-- Options injected by JS -->
+        </div>
+        <div id="quiz-feedback" style="margin-top: 1rem; font-weight: 600;"></div>
+        <button class="btn btn-primary" id="btn-next-question" style="display: none; margin-top: 1rem;">Next
+          Question</button>
+      </div>
+    </section>
+
+    <!-- Results View -->
+    <section id="results-view" class="view">
+      <div class="lesson-content glass-card" style="text-align: center;">
+        <h2 style="font-size: 3rem; margin-bottom: 1rem;">Course Complete!</h2>
+        <p id="results-score" style="font-size: 1.25rem; margin-bottom: 2rem;"></p>
+        <button class="btn btn-primary" onclick="app.showHome()">Return Home</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
