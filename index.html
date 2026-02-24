@@ -16,7 +16,10 @@
     <header>
       <div class="logo">CS with Giorgio</div>
       <nav style="display: flex; align-items: center; gap: 1.5rem;">
-        <span id="gpa-display" style="color: var(--text-muted); font-weight: 600;">GPA: 0.00</span>
+        <div class="user-stats">
+          <span id="gpa-display" title="Grade Point Average">GPA: 0.00</span>
+          <span id="streak-display" title="Daily Streak">🔥 0</span>
+        </div>
         <button id="theme-toggle" title="Toggle Dark/Light Mode">🌓</button>
       </nav>
     </header>
@@ -26,6 +29,20 @@
       <h1>Learning Computer Science <br>with <span style="color: var(--primary)">Giorgio.</span></h1>
       <p class="tagline">Interactive lessons designed to make complex topics simple. Start your journey into the world
         of algorithms and data structures today.</p>
+
+      <!-- Daily Challenge Card -->
+      <section id="daily-challenge-container" style="display: none;">
+        <div class="glass-card daily-card" id="daily-challenge-card">
+          <div class="daily-badge">DAILY CHALLENGE</div>
+          <div class="daily-content">
+            <div class="daily-info">
+              <h3 id="daily-title">Question of the Day</h3>
+              <p id="daily-desc">Test your knowledge and boost your GPA!</p>
+            </div>
+            <button class="btn btn-primary" id="btn-start-daily">Solve Now</button>
+          </div>
+        </div>
+      </section>
 
       <div class="course-grid" id="course-list">
         <!-- Lessons injected by JS -->

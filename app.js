@@ -217,6 +217,189 @@ while (count < 5) {
         correct: 2
       }
     ]
+  },
+  {
+    id: 'data-structures-1',
+    title: 'Arrays vs Linked Lists',
+    icon: '🔗',
+    shortDesc: 'The building blocks of data organization. Compare how they store information.',
+    content: `
+    <p>Data structures are specialized formats for organizing and storing data. 
+    <strong>Arrays</strong> and <strong>Linked Lists</strong> are two basic linear structures.</p>
+    <br>
+
+    <h3>📦 Arrays</h3>
+    <p>An <strong>array</strong> stores elements in contiguous (side-by-side) memory locations. 
+    It's like a row of lockers.</p>
+    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+      <li><strong>Pros:</strong> Very fast access by index (O(1)).</li>
+      <li><strong>Cons:</strong> Fixed size (usually), and inserting/deleting in the middle is slow (O(n)).</li>
+    </ul>
+
+    <br>
+    <h3>🔗 Linked Lists</h3>
+    <p>A <strong>linked list</strong> stores elements (nodes) scattered in memory. 
+    Each node contains the data and a <strong>pointer</strong> to the next node.</p>
+    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+      <li><strong>Pros:</strong> Dynamic size, and fast insertion/deletion (O(1) if you have the pointer).</li>
+      <li><strong>Cons:</strong> Slow to find an element; you must start from the beginning (O(n)).</li>
+    </ul>
+  `,
+    quiz: [
+      {
+        question: "Which data structure stores elements in contiguous memory?",
+        options: ["Linked List", "Array", "Stack", "Queue"],
+        correct: 1
+      },
+      {
+        question: "What is a major disadvantage of a standard array?",
+        options: ["Slow access speed", "It cannot store numbers", "Difficult to resize", "Uses too many pointers"],
+        correct: 2
+      }
+    ]
+  },
+  {
+    id: 'stacks-queues',
+    title: 'Stacks & Queues',
+    icon: '📚',
+    shortDesc: 'Understand the difference between LIFO and FIFO ordering.',
+    content: `
+    <p>Stacks and Queues are "abstract" data structures that define how items are added and removed.</p>
+    <br>
+
+    <h3>🥞 Stacks (LIFO)</h3>
+    <p><strong>LIFO</strong> stands for "Last-In, First-Out". Think of a stack of plates.</p>
+    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+      <li><strong>Push:</strong> Add an item to the top.</li>
+      <li><strong>Pop:</strong> Remove the top item.</li>
+    </ul>
+
+    <br>
+    <h3>🎟️ Queues (FIFO)</h3>
+    <p><strong>FIFO</strong> stands for "First-In, First-Out". Think of a line at a cinema.</p>
+    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+      <li><strong>Enqueue:</strong> Add an item to the back.</li>
+      <li><strong>Dequeue:</strong> Remove an item from the front.</li>
+    </ul>
+  `,
+    quiz: [
+      {
+        question: "What does LIFO stand for?",
+        options: ["Link In, Fold Out", "Last In, First Out", "List In, Fast Out", "Line In, First Out"],
+        correct: 1
+      },
+      {
+        question: "In a queue, where are new items added?",
+        options: ["The front", "The middle", "The back", "Randomly"],
+        correct: 2
+      }
+    ]
+  },
+  {
+    id: 'big-o-notation',
+    title: 'Big O Notation',
+    icon: '📉',
+    shortDesc: 'How we measure the efficiency of an algorithm as data grows.',
+    content: `
+    <p><strong>Big O Notation</strong> is a mathematical notation that describes the limiting behavior 
+    of a function when the argument tends towards a particular value or infinity.</p>
+    <br>
+
+    <p>In CS, it's used to classify algorithms according to how their run time or space requirements 
+    grow as the input size ($n$) grows.</p>
+    <br>
+
+    <ul style="margin-left: 1.5rem;">
+      <li><strong>O(1) - Constant:</strong> Fast. Time doesn't change with $n$. (e.g., accessing an array index)</li>
+      <li><strong>O(n) - Linear:</strong> Time grows directly with $n$. (e.g., searching a list)</li>
+      <li><strong>O(n²) - Quadratic:</strong> Time grows fast! (e.g., nested loops, like Bubble Sort)</li>
+    </ul>
+
+    <br>
+    <p>Goal: We always aim for algorithms with smaller Big O values for large data sets.</p>
+  `,
+    quiz: [
+      {
+        question: "Which Big O complexity is generally considered the fastest for large N?",
+        options: ["O(n²)", "O(n)", "O(1)", "O(log n)"],
+        correct: 2
+      },
+      {
+        question: "Searching through a simple list once usually has what complexity?",
+        options: ["Linear - O(n)", "Constant - O(1)", "Quadratic - O(n²)", "Exponential"],
+        correct: 0
+      }
+    ]
+  },
+  {
+    id: 'recursion',
+    title: 'Recursion',
+    icon: '🌀',
+    shortDesc: 'When a function calls itself to solve a smaller version of a problem.',
+    content: `
+    <p><strong>Recursion</strong> is a method of solving a problem where the solution depends 
+    on solutions to smaller instances of the same problem.</p>
+    <br>
+
+    <p>A recursive function must have two parts:</p>
+    <ol style="margin-left: 1.5rem; margin-top: 1rem;">
+      <li><strong>Base Case:</strong> The condition that stops the recursion. Without this, it runs forever (Stack Overflow).</li>
+      <li><strong>Recursive Step:</strong> The part where the function calls itself with a slightly smaller input.</li>
+    </ol>
+
+    <br>
+    <p>Example: To calculate $5!$ (5 factorial), you can say it's $5 \times 4!$. To find $4!$, you find $3!$, and so on, until you reach $1! = 1$.</p>
+  `,
+    quiz: [
+      {
+        question: "What is the most important part of a recursive function to prevent it from running forever?",
+        options: ["The recursive step", "The function name", "The base case", "The return type"],
+        correct: 2
+      },
+      {
+        question: "What happens if a recursive call never hits a base case?",
+        options: ["The program speeds up", "Stack Overflow error", "It returns zero", "The computer restarts"],
+        correct: 1
+      }
+    ]
+  }
+];
+
+const dailyChallengeData = [
+  {
+    id: 'daily-1',
+    question: "Which data structure uses the 'First-In, First-Out' (FIFO) principle?",
+    options: ["Stack", "Array", "Queue", "Tree"],
+    correct: 2,
+    explanation: "Queues work like a line at a store: the first person in is the first person out."
+  },
+  {
+    id: 'daily-2',
+    question: "What is the time complexity of a Bubble Sort in its worst case?",
+    options: ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+    correct: 3,
+    explanation: "Because Bubble Sort uses nested loops to compare every pair, it has quadratic O(n²) complexity."
+  },
+  {
+    id: 'daily-3',
+    question: "In JavaScript, which keyword declares a variable that can be reassigned?",
+    options: ["const", "let", "fix", "static"],
+    correct: 1,
+    explanation: "'let' allows for reassignment, whereas 'const' creates a read-only reference."
+  },
+  {
+    id: 'daily-4',
+    question: "What's the main difference between an Array and a Linked List?",
+    options: ["Arrays are always faster", "Linked lists use contiguous memory", "Arrays use contiguous memory", "They are the same"],
+    correct: 2,
+    explanation: "Arrays store elements side-by-side in memory, while linked list nodes can be anywhere."
+  },
+  {
+    id: 'daily-5',
+    question: "What do we call a function that calls itself?",
+    options: ["Looping function", "Selfish function", "Recursive function", "Dynamic function"],
+    correct: 2,
+    explanation: "Recursion is the process where a function calls itself as a subroutine."
   }
 ];
 
@@ -259,7 +442,11 @@ class App {
     this.gpa = parseFloat(localStorage.getItem('cs-gpa')) || 0;
     this.completedLessons = JSON.parse(localStorage.getItem('cs-completed-lessons')) || [];
     this.theme = localStorage.getItem('cs-theme') || 'light';
+    this.streak = parseInt(localStorage.getItem('cs-streak')) || 0;
+    this.lastChallengeDate = localStorage.getItem('cs-last-challenge-date') || '';
     this.answers = [];
+    this.isDailyChallenge = false;
+    this.currentDaily = null;
 
     this.init();
   }
@@ -267,8 +454,9 @@ class App {
   init() {
     this.applyTheme();
     this.renderHome();
-    this.updateGPA();
+    this.updateStats();
     this.renderAchievements();
+    this.checkDailyChallenge();
 
     document.getElementById('btn-back-home').onclick = (e) => {
       e.preventDefault();
@@ -286,6 +474,10 @@ class App {
     document.getElementById('theme-toggle').onclick = () => {
       this.toggleTheme();
     };
+
+    document.getElementById('btn-start-daily').onclick = () => {
+      this.startDailyChallenge();
+    };
   }
 
   toggleTheme() {
@@ -299,9 +491,53 @@ class App {
     document.getElementById('theme-toggle').innerText = this.theme === 'light' ? '🌙' : '☀️';
   }
 
-  updateGPA() {
+  updateStats() {
     document.getElementById('gpa-display').innerText = `GPA: ${this.gpa.toFixed(2)}`;
+    document.getElementById('streak-display').innerText = `🔥 ${this.streak}`;
     localStorage.setItem('cs-gpa', this.gpa);
+    localStorage.setItem('cs-streak', this.streak);
+    localStorage.setItem('cs-last-challenge-date', this.lastChallengeDate);
+  }
+
+  checkDailyChallenge() {
+    const today = new Date().toDateString();
+    const container = document.getElementById('daily-challenge-container');
+    const card = document.getElementById('daily-challenge-card');
+
+    // Choose challenge based on date hash
+    const dayHash = new Date().getDate() % dailyChallengeData.length;
+    this.currentDaily = dailyChallengeData[dayHash];
+
+    container.style.display = 'block';
+
+    if (this.lastChallengeDate === today) {
+      card.classList.add('completed');
+      document.getElementById('daily-desc').innerText = "Come back tomorrow for a new challenge!";
+      document.getElementById('btn-start-daily').innerText = "Completed today";
+      document.getElementById('btn-start-daily').disabled = true;
+    } else {
+      card.classList.remove('completed');
+      document.getElementById('daily-desc').innerText = "Test your knowledge and boost your GPA!";
+      document.getElementById('btn-start-daily').innerText = "Solve Now";
+      document.getElementById('btn-start-daily').disabled = false;
+    }
+  }
+
+  startDailyChallenge() {
+    this.isDailyChallenge = true;
+    this.currentQuestionIndex = 0;
+    this.score = 0;
+    this.answers = [];
+
+    // Mock a lesson structure for the daily challenge
+    this.currentLesson = {
+      title: "Daily Challenge",
+      id: "daily-challenge",
+      quiz: [this.currentDaily]
+    };
+
+    this.renderQuestion();
+    this.showView('quiz-view');
   }
 
   renderHome() {
@@ -341,7 +577,8 @@ class App {
 
     // Animate progress bar for aesthetic effect
     setTimeout(() => {
-      document.getElementById('lesson-progress').style.width = '100%';
+      const bar = document.getElementById('lesson-progress');
+      if (bar) bar.style.width = '100%';
     }, 100);
   }
 
@@ -407,23 +644,44 @@ class App {
     const total = this.currentLesson.quiz.length;
     const percentage = (this.score / total) * 100;
 
-    // Update GPA (very simple logic: weighted average)
-    this.gpa = (this.gpa + (this.score / total) * 4) / (this.gpa === 0 ? 1 : 1.1);
-    if (this.gpa > 4) this.gpa = 4;
+    if (this.isDailyChallenge) {
+      if (percentage >= 100) {
+        const today = new Date().toDateString();
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
 
-    // Save completion
-    if (percentage >= 100 && !this.completedLessons.includes(this.currentLesson.id)) {
-      this.completedLessons.push(this.currentLesson.id);
-      localStorage.setItem('cs-completed-lessons', JSON.stringify(this.completedLessons));
+        if (this.lastChallengeDate === yesterday) {
+          this.streak++;
+        } else if (this.lastChallengeDate !== today) {
+          this.streak = 1;
+        }
+
+        this.lastChallengeDate = today;
+        this.gpa = Math.min(4, this.gpa + 0.1); // Bonus for daily
+      }
+      this.isDailyChallenge = false;
+    } else {
+      // Update GPA (very simple logic: weighted average)
+      const lessonWeight = 4 / lessonData.length;
+      this.gpa = (this.gpa * 0.9) + ((this.score / total) * lessonWeight);
+      if (this.gpa > 4) this.gpa = 4;
+
+      // Save completion
+      if (percentage >= 100 && !this.completedLessons.includes(this.currentLesson.id)) {
+        this.completedLessons.push(this.currentLesson.id);
+        localStorage.setItem('cs-completed-lessons', JSON.stringify(this.completedLessons));
+      }
     }
 
-    this.updateGPA();
+    this.updateStats();
     this.renderHome(); // Refresh home grid
     this.renderAchievements(); // Refresh achievements
+    this.checkDailyChallenge();
 
-    this.downloadResults();
+    if (this.currentLesson.id !== 'daily-challenge') this.downloadResults();
 
-    document.getElementById('results-score').innerText = `You got ${this.score} out of ${total} correct (${percentage}%).`;
+    document.getElementById('results-score').innerText = percentage >= 100 ?
+      `Perfect score! You've mastered this topic.` :
+      `You got ${this.score} out of ${total} correct (${percentage}%).`;
     this.showView('results-view');
   }
 

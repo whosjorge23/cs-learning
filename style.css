@@ -10,6 +10,7 @@
   --glass: rgba(0, 0, 0, 0.03);
   --glass-border: rgba(0, 0, 0, 0.1);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --daily-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
 }
 
 [data-theme="dark"] {
@@ -20,6 +21,7 @@
   --text-muted: #94a3b8;
   --glass: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
+  --daily-gradient: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
 }
 
 * {
@@ -60,6 +62,26 @@ header {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -1px;
+}
+
+.user-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--glass);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+#gpa-display {
+  color: var(--primary);
+}
+
+#streak-display {
+  color: #f97316;
 }
 
 .glass-card {
@@ -326,4 +348,75 @@ h1 {
 .achievement-card p {
   font-size: 0.8rem;
   color: var(--text-muted);
+}
+
+/* Daily Challenge Card */
+.daily-card {
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
+}
+
+.daily-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--daily-gradient);
+}
+
+[data-theme="dark"] .daily-card {
+  background: var(--surface);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.daily-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--daily-gradient);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 0 0 0 12px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.daily-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.daily-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.daily-card.completed {
+  opacity: 0.8;
+  border-color: var(--accent);
+  background-image: linear-gradient(var(--surface), var(--surface)), var(--accent);
+}
+
+@media (max-width: 640px) {
+  .daily-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
 }
