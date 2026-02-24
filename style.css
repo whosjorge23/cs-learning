@@ -363,16 +363,6 @@ h1 {
   box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
 }
 
-.daily-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--daily-gradient);
-}
-
 [data-theme="dark"] .daily-card {
   background: var(--surface);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
@@ -381,11 +371,11 @@ h1 {
 .daily-badge {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   background: var(--daily-gradient);
   color: white;
   padding: 4px 12px;
-  border-radius: 0 0 0 12px;
+  border-radius: 0 0 12px 0;
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 1px;
