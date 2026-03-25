@@ -1,0 +1,497 @@
+/* =============================================
+   LESSON SECTION STYLES — Visual PDF-style layout
+   Add these to the bottom of your style.css
+   ============================================= */
+
+/* ── Hero block ─────────────────────────────── */
+.ls-hero {
+  margin-bottom: 2rem;
+}
+.ls-lead {
+  font-size: 1.2rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+/* ── Badges ──────────────────────────────────── */
+.ls-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.ls-badge--blue   { background: #3b82f6; }
+.ls-badge--purple { background: #8b5cf6; }
+.ls-badge--green  { background: #10b981; }
+.ls-badge--orange { background: #f97316; }
+.ls-badge--red    { background: #ef4444; }
+.ls-badge--teal   { background: #0d9488; }
+
+/* ── Section wrapper ─────────────────────────── */
+.ls-section {
+  margin: 2rem 0;
+}
+.ls-section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+/* ── 4-step flow ─────────────────────────────── */
+.ls-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.ls-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 80px;
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  text-align: center;
+  flex: 1;
+}
+.ls-step--1 { background: rgba(249, 115, 22, 0.12); }
+.ls-step--2 { background: rgba(99, 102, 241, 0.12); }
+.ls-step--3 { background: rgba(13, 148, 136, 0.12); }
+.ls-step--4 { background: rgba(236, 72, 153, 0.12); }
+.ls-step-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+}
+.ls-step--1 .ls-step-num { background: #f97316; }
+.ls-step--2 .ls-step-num { background: #6366f1; }
+.ls-step--3 .ls-step-num { background: #0d9488; }
+.ls-step--4 .ls-step-num { background: #ec4899; }
+.ls-step-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.ls-step-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.ls-step-arrow {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* ── Analogy block ───────────────────────────── */
+.ls-analogy-block {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(99, 102, 241, 0.07);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.ls-analogy-icon { font-size: 2.5rem; flex-shrink: 0; }
+.ls-analogy-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.3rem; color: var(--text); }
+.ls-analogy-text { font-size: 0.9rem; color: var(--text-muted); }
+
+/* ── Info cards row ──────────────────────────── */
+.ls-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+.ls-info-card {
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ls-info-card strong { font-size: 0.95rem; color: var(--text); }
+.ls-info-card p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+.ls-info-icon { font-size: 1.5rem; }
+.ls-info-card--orange { background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.2); }
+.ls-info-card--blue   { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); }
+.ls-info-card--green  { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); }
+.ls-info-card--red    { background: rgba(239, 68, 68, 0.1);  border: 1px solid rgba(239, 68, 68, 0.2); }
+.ls-info-card--purple { background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); }
+
+/* ── Takeaway banner ─────────────────────────── */
+.ls-takeway-banner {
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.1));
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: 14px;
+  padding: 1.1rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.ls-takeway-banner span { font-size: 1.3rem; }
+
+/* ── Compare grid (side-by-side cards) ───────── */
+.ls-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+.ls-compare-card {
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.ls-compare-card p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+.ls-compare-icon { font-size: 2rem; }
+.ls-compare-title { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+.ls-compare-sub { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+.ls-compare-card--blue   { background: rgba(59,130,246,0.08);  border: 1px solid rgba(59,130,246,0.2); }
+.ls-compare-card--orange { background: rgba(249,115,22,0.08);  border: 1px solid rgba(249,115,22,0.2); }
+
+/* ── Code block ──────────────────────────────── */
+.ls-code-block {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  color: var(--text);
+  white-space: pre;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+
+/* ── Numbered list ───────────────────────────── */
+.ls-numbered-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.ls-nl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  font-size: 0.93rem;
+  color: var(--text);
+}
+.ls-nl-num {
+  min-width: 28px;
+  height: 28px;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ── Warning block ───────────────────────────── */
+.ls-warning-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 14px;
+  padding: 1.1rem 1.5rem;
+  font-size: 0.92rem;
+  color: var(--text);
+  margin: 1.5rem 0;
+}
+.ls-warning-block span { font-size: 1.4rem; flex-shrink: 0; }
+
+/* ── Bubble sort visual ──────────────────────── */
+.ls-visual-example {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.ls-ve-label { font-weight: 700; font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem; }
+.ls-ve-arrow { font-size: 0.85rem; color: var(--text-muted); margin: 0.75rem 0; }
+.ls-ve-note  { font-size: 0.82rem; color: var(--accent); margin-top: 0.75rem; }
+.ls-bubble-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.ls-bubble {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 1rem;
+}
+.ls-bubble--swap { background: #f97316; }
+.ls-bubble--done { background: #10b981; }
+
+/* ── Linked list visual ──────────────────────── */
+.ls-linked-visual {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+.ls-node {
+  background: #6366f1;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.ls-link { color: var(--text-muted); font-weight: 700; }
+
+/* ── Stack visual ────────────────────────────── */
+.ls-stack-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.75rem 0;
+}
+.ls-stack-item {
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.25);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  color: var(--text);
+  text-align: center;
+}
+.ls-stack-top {
+  background: rgba(99,102,241,0.2);
+  border-color: rgba(99,102,241,0.4);
+  font-weight: 700;
+}
+
+/* ── Queue visual ────────────────────────────── */
+.ls-queue-visual {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+.ls-q-item {
+  background: rgba(249,115,22,0.1);
+  border: 1px solid rgba(249,115,22,0.25);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  color: var(--text);
+}
+.ls-q-front { background: rgba(249,115,22,0.22); font-weight: 700; }
+.ls-q-back  { opacity: 0.7; }
+.ls-q-arrow { color: var(--text-muted); font-weight: 700; }
+
+/* ── Big O list ──────────────────────────────── */
+.ls-bigo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.ls-bigo-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: 14px;
+  flex-wrap: wrap;
+}
+.ls-bigo-notation {
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  font-weight: 800;
+  min-width: 80px;
+}
+.ls-bigo-name {
+  font-weight: 700;
+  min-width: 110px;
+  font-size: 0.9rem;
+}
+.ls-bigo-desc { font-size: 0.82rem; color: var(--text-muted); flex: 1; }
+.ls-bigo--green  { background: rgba(16,185,129,0.1);  border: 1px solid rgba(16,185,129,0.25);  }
+.ls-bigo--yellow { background: rgba(234,179,8,0.1);   border: 1px solid rgba(234,179,8,0.25);   }
+.ls-bigo--orange { background: rgba(249,115,22,0.1);  border: 1px solid rgba(249,115,22,0.25);  }
+.ls-bigo--red    { background: rgba(239,68,68,0.1);   border: 1px solid rgba(239,68,68,0.25);   }
+
+/* ── Recursion chain ─────────────────────────── */
+.ls-recursion-chain {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.ls-rc-item {
+  background: #6366f1;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+.ls-rc-base { background: #10b981; }
+.ls-rc-arrow { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ── Real-world block ────────────────────────── */
+.ls-realworld-block {
+  background: rgba(59,130,246,0.06);
+  border: 1px solid rgba(59,130,246,0.18);
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+.ls-rw-header {
+  background: rgba(59,130,246,0.12);
+  padding: 0.7rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.ls-rw-rows { padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.ls-rw-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+.ls-rw-q { color: var(--text); flex: 1; min-width: 160px; }
+.ls-rw-arrow { color: var(--text-muted); }
+.ls-rw-t  { background: rgba(16,185,129,0.15); color: #10b981; padding: 2px 10px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; }
+.ls-rw-f  { background: rgba(239,68,68,0.15);  color: #ef4444; padding: 2px 10px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; }
+.ls-rw-or { font-size: 0.78rem; color: var(--text-muted); }
+
+/* ── Operator list ───────────────────────────── */
+.ls-operator-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.ls-operator {
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.3rem 1.25rem;
+  align-items: start;
+}
+.ls-op-badge {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: center;
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1rem;
+  color: white;
+  white-space: nowrap;
+}
+.ls-op--and { background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25); }
+.ls-op--and .ls-op-badge { background: #f97316; }
+.ls-op--or  { background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25); }
+.ls-op--or  .ls-op-badge { background: #6366f1; }
+.ls-op--not { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.25); }
+.ls-op--not .ls-op-badge { background: #0d9488; }
+.ls-op-rule { font-weight: 700; font-size: 0.92rem; color: var(--text); }
+.ls-op-example { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ── Mini example card ───────────────────────── */
+.ls-example-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.ls-ex-conditions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.ls-ex-cond {
+  background: rgba(234,179,8,0.15);
+  border: 1px solid rgba(234,179,8,0.3);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+.ls-ex-op {
+  background: var(--primary);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+.ls-ex-cases { display: flex; flex-direction: column; gap: 0.6rem; }
+.ls-ex-case {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  flex-wrap: wrap;
+}
+.ls-ex-case--fail { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.18); }
+.ls-ex-case--pass { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.18); }
+.ls-ex-result { font-weight: 700; font-size: 0.85rem; }
+.ls-ex-result--false { color: #ef4444; }
+.ls-ex-result--true  { color: #10b981; }
+
+/* ── Responsive tweaks ───────────────────────── */
+@media (max-width: 600px) {
+  .ls-steps { gap: 0.35rem; }
+  .ls-step  { min-width: 60px; padding: 0.7rem 0.5rem; }
+  .ls-step-arrow { font-size: 1rem; }
+  .ls-operator { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .ls-op-badge { grid-column: 1; grid-row: 1; align-self: start; display: inline-block; margin-bottom: 0.5rem; }
+  .ls-bigo-item { flex-direction: column; gap: 0.3rem; }
+  .ls-bigo-notation, .ls-bigo-name { min-width: unset; }
+  .ls-compare-grid { grid-template-columns: 1fr; }
+  .ls-ex-case { flex-direction: column; align-items: flex-start; }
+}
