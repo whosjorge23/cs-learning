@@ -485,13 +485,75 @@
 
 /* ── Responsive tweaks ───────────────────────── */
 @media (max-width: 600px) {
-  .ls-steps { gap: 0.35rem; }
-  .ls-step  { min-width: 60px; padding: 0.7rem 0.5rem; }
-  .ls-step-arrow { font-size: 1rem; }
-  .ls-operator { grid-template-columns: 1fr; grid-template-rows: auto; }
-  .ls-op-badge { grid-column: 1; grid-row: 1; align-self: start; display: inline-block; margin-bottom: 0.5rem; }
+  /* ── Steps flow ── */
+  .ls-steps { gap: 0.25rem; }
+  .ls-step  { min-width: 56px; padding: 0.6rem 0.4rem; flex: 1; }
+  .ls-step-arrow { font-size: 0.85rem; }
+  .ls-step-num { width: 30px; height: 30px; font-size: 0.9rem; }
+  .ls-step-label { font-size: 0.78rem; }
+  .ls-step-sub { font-size: 0.65rem; }
+
+  /* ── Operator layout stacks on small screens ── */
+  .ls-operator { grid-template-columns: 1fr; grid-template-rows: auto; gap: 0.5rem; }
+  .ls-op-badge { grid-column: 1; grid-row: 1; align-self: start; display: inline-block; margin-bottom: 0.25rem; }
+
+  /* ── Big O ── */
   .ls-bigo-item { flex-direction: column; gap: 0.3rem; }
   .ls-bigo-notation, .ls-bigo-name { min-width: unset; }
-  .ls-compare-grid { grid-template-columns: 1fr; }
+
+  /* ── Compare grid: stack vertically ── */
+  .ls-compare-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .ls-compare-card { padding: 1rem; border-radius: 14px; }
+
+  /* ── Code blocks: prevent overflow ── */
+  .ls-code-block {
+    font-size: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    overflow-x: auto;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ── Cards row: 2 cols on mobile ── */
+  .ls-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  .ls-info-card { padding: 0.9rem; }
+  .ls-info-card strong { font-size: 0.85rem; }
+  .ls-info-card p { font-size: 0.75rem; }
+
+  /* ── Analogy block ── */
+  .ls-analogy-block { gap: 0.75rem; padding: 1rem; flex-direction: column; }
+  .ls-analogy-icon { font-size: 2rem; }
+
+  /* ── Takeaway banner ── */
+  .ls-takeway-banner { font-size: 0.85rem; padding: 0.9rem 1rem; }
+
+  /* ── Warning block ── */
+  .ls-warning-block { padding: 0.9rem 1rem; font-size: 0.85rem; }
+
+  /* ── Real-world block ── */
+  .ls-rw-q { font-size: 0.82rem; }
+
+  /* ── Example card ── */
   .ls-ex-case { flex-direction: column; align-items: flex-start; }
+
+  /* ── Numbered list ── */
+  .ls-nl-item { padding: 0.6rem 0.75rem; font-size: 0.85rem; }
+
+  /* ── Big O list ── */
+  .ls-bigo-item { padding: 0.7rem 0.9rem; }
+
+  /* ── Section title ── */
+  .ls-section-title { font-size: 1rem; }
+  .ls-lead { font-size: 1rem; }
+
+  /* ── Hero ── */
+  .ls-hero { margin-bottom: 1.25rem; }
+  .ls-section { margin: 1.25rem 0; }
+
+  /* ── Visual example ── */
+  .ls-visual-example { padding: 1rem; }
+  .ls-bubble { width: 36px; height: 36px; font-size: 0.85rem; border-radius: 8px; }
 }
