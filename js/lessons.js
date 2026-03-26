@@ -350,6 +350,153 @@ pi = 3.2; // ❌ error</div>
     ]
   },
   {
+    id: 'if-else-statements',
+    title: 'If, Else & Else If',
+    icon: '⚖️',
+    shortDesc: 'Learn how computers make decisions based on conditions.',
+    content: `
+  <div class="ls-hero">
+    <span class="ls-badge ls-badge--orange">Easy mode on</span>
+    <p class="ls-lead">Computers make decisions step by step. Programs don't think... they just follow <strong>conditions</strong>.</p>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">A simple pattern</h3>
+    <div class="ls-steps">
+      <div class="ls-step ls-step--1">
+        <div class="ls-step-num">1</div>
+        <div class="ls-step-label">Input</div>
+        <div class="ls-step-sub">What we check</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--2">
+        <div class="ls-step-num">2</div>
+        <div class="ls-step-label">Condition</div>
+        <div class="ls-step-sub">The rule</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--3">
+        <div class="ls-step-num">3</div>
+        <div class="ls-step-label">Decision</div>
+        <div class="ls-step-sub">Which path</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--4">
+        <div class="ls-step-num">4</div>
+        <div class="ls-step-label">Action</div>
+        <div class="ls-step-sub">What happens</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">So... what is an IF?</h3>
+    <div class="ls-analogy-block">
+      <div class="ls-analogy-icon">🍕</div>
+      <div>
+        <div class="ls-analogy-title">Real World Decisions</div>
+        <div class="ls-analogy-text">
+          • If it rains → take umbrella ☔<br>
+          • If you are hungry → eat 🍔<br>
+          • If battery = 0 → charge 🔋
+        </div>
+      </div>
+    </div>
+    <div class="ls-code-block">if (condition) {
+   // do something
+}</div>
+    <p class="ls-compare-sub"><strong>If TRUE</strong> → run the code. <strong>If FALSE</strong> → skip it.</p>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">IF + ELSE (The Plan B)</h3>
+    <div class="ls-compare-grid">
+      <div class="ls-compare-card ls-compare-card--blue">
+        <div class="ls-compare-icon">✔</div>
+        <div class="ls-compare-title">IF</div>
+        <div class="ls-compare-sub">When TRUE</div>
+        <p>If it rains → take umbrella ☔</p>
+      </div>
+      <div class="ls-compare-card ls-compare-card--orange">
+        <div class="ls-compare-icon">❌</div>
+        <div class="ls-compare-title">ELSE</div>
+        <div class="ls-compare-sub">When FALSE</div>
+        <p>Else → wear sunglasses 😎</p>
+      </div>
+    </div>
+    <div class="ls-code-block">if (isRaining) {
+   takeUmbrella();
+} else {
+   wearSunglasses();
+}</div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">ELSE IF (The Decision Ladder)</h3>
+    <p class="ls-compare-sub">What if we have MANY options? Use <strong>ELSE IF</strong>.</p>
+    <div class="ls-code-block">if (score > 90) {
+   grade = "Excellent";
+} else if (score > 60) {
+   grade = "Good";
+} else {
+   grade = "Try again";
+}</div>
+    <div class="ls-numbered-list">
+      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div><strong>IF</strong> → first check</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div><strong>ELSE IF</strong> → more checks</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div><strong>ELSE</strong> → default / fallback</div></div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Why It Matters</h3>
+    <div class="ls-cards-row">
+      <div class="ls-info-card ls-info-card--blue">
+        <div class="ls-info-icon">⚡</div>
+        <strong>Decisions</strong>
+        <p>Apps react to users in real-time.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--green">
+        <div class="ls-info-icon">🎮</div>
+        <strong>Games</strong>
+        <p>Win / Lose logic and health checks.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--orange">
+        <div class="ls-info-icon">📱</div>
+        <strong>Apps</strong>
+        <p>Login success vs. showing an error.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--purple">
+        <div class="ls-info-icon">🛒</div>
+        <strong>E-commerce</strong>
+        <p>Applying discounts and processing payments.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-takeway-banner">
+    <span>💡</span> <strong>Final sentence:</strong> Computers don't think — they choose between paths using IF statements.
+  </div>
+        `,
+    quiz: [
+      {
+        question: "What happens if an 'IF' condition is FALSE and there is no 'ELSE' block?",
+        options: ["The program crashes", "The code inside is skipped", "The code inside runs anyway", "It asks the user what to do"],
+        correct: 1
+      },
+      {
+        question: "When should you use 'ELSE IF'?",
+        options: ["When you have only one choice", "When you have multiple different conditions to check", "When you want to repeat code", "Only at the end of a program"],
+        correct: 1
+      },
+      {
+        question: "Which part of an IF-ELSE statement runs if the condition is TRUE?",
+        options: ["The ELSE block", "The IF block", "Both blocks", "Neither block"],
+        correct: 1
+      }
+    ]
+  },
+  {
     id: 'for-while-loops',
     title: 'For & While Loops',
     icon: '🔁',
@@ -417,238 +564,4 @@ while (count &lt; 5) {
       }
     ]
   },
-  {
-    id: 'data-structures-1',
-    title: 'Arrays vs Linked Lists',
-    icon: '🔗',
-    shortDesc: 'The building blocks of data organization. Compare how they store information.',
-    content: `
-  <div class="ls-hero">
-    <span class="ls-badge ls-badge--blue">Data Structures</span>
-    <p class="ls-lead">How you <strong>store</strong> data matters as much as the data itself. Arrays and Linked Lists solve this differently.</p>
-  </div>
-
-  <div class="ls-compare-grid">
-    <div class="ls-compare-card ls-compare-card--blue">
-      <div class="ls-compare-icon">📦</div>
-      <div class="ls-compare-title">Array</div>
-      <div class="ls-compare-sub">Contiguous (side-by-side) memory</div>
-      <div class="ls-bubble-row" style="margin:0.75rem 0;">
-        <div class="ls-bubble">A</div>
-        <div class="ls-bubble">B</div>
-        <div class="ls-bubble">C</div>
-        <div class="ls-bubble">D</div>
-      </div>
-      <p>✅ Fast access by index — O(1)</p>
-      <p>❌ Slow to insert/delete in middle — O(n)</p>
-    </div>
-    <div class="ls-compare-card ls-compare-card--orange">
-      <div class="ls-compare-icon">🔗</div>
-      <div class="ls-compare-title">Linked List</div>
-      <div class="ls-compare-sub">Nodes scattered in memory, linked by pointers</div>
-      <div class="ls-linked-visual">
-        <span class="ls-node">A</span><span class="ls-link">→</span>
-        <span class="ls-node">B</span><span class="ls-link">→</span>
-        <span class="ls-node">C</span><span class="ls-link">→</span>
-        <span class="ls-node">null</span>
-      </div>
-      <p>✅ Fast insert/delete — O(1) with pointer</p>
-      <p>❌ Slow to find an element — O(n)</p>
-    </div>
-  </div>
-
-  <div class="ls-takeway-banner">
-    <span>💡</span> <strong>Choose wisely:</strong> Need fast lookups? Array. Need fast inserts/deletes? Linked List.
-  </div>
-        `,
-    quiz: [
-      {
-        question: "Which data structure stores elements in contiguous memory?",
-        options: ["Linked List", "Array", "Stack", "Queue"],
-        correct: 1
-      },
-      {
-        question: "What is a major disadvantage of a standard array?",
-        options: ["Slow access speed", "It cannot store numbers", "Difficult to resize", "Uses too many pointers"],
-        correct: 2
-      }
-    ]
-  },
-  {
-    id: 'stacks-queues',
-    title: 'Stacks & Queues',
-    icon: '📚',
-    shortDesc: 'Understand the difference between LIFO and FIFO ordering.',
-    content: `
-  <div class="ls-hero">
-    <span class="ls-badge ls-badge--green">Data Structures</span>
-    <p class="ls-lead"><strong>Stacks</strong> and <strong>Queues</strong> define the order in which items are added and removed — two opposite strategies.</p>
-  </div>
-
-  <div class="ls-compare-grid">
-    <div class="ls-compare-card ls-compare-card--blue">
-      <div class="ls-compare-icon">🥞</div>
-      <div class="ls-compare-title">Stack</div>
-      <div class="ls-compare-sub"><strong>LIFO</strong> — Last In, First Out</div>
-      <div class="ls-stack-visual">
-        <div class="ls-stack-item ls-stack-top">📄 Last added ← out first</div>
-        <div class="ls-stack-item">📄 Middle</div>
-        <div class="ls-stack-item">📄 First added</div>
-      </div>
-      <p>Like a stack of plates — you take from the top.</p>
-      <p>Operations: <strong>Push</strong> (add top) / <strong>Pop</strong> (remove top)</p>
-    </div>
-    <div class="ls-compare-card ls-compare-card--orange">
-      <div class="ls-compare-icon">🎟️</div>
-      <div class="ls-compare-title">Queue</div>
-      <div class="ls-compare-sub"><strong>FIFO</strong> — First In, First Out</div>
-      <div class="ls-queue-visual">
-        <span class="ls-q-item ls-q-front">1st ← out first</span>
-        <span class="ls-q-arrow">→</span>
-        <span class="ls-q-item">2nd</span>
-        <span class="ls-q-arrow">→</span>
-        <span class="ls-q-item ls-q-back">3rd ← in last</span>
-      </div>
-      <p>Like a cinema line — first person in gets in first.</p>
-      <p>Operations: <strong>Enqueue</strong> (add back) / <strong>Dequeue</strong> (remove front)</p>
-    </div>
-  </div>
-
-  <div class="ls-takeway-banner">
-    <span>💡</span> <strong>Shortcut:</strong> Stack = plates (top first). Queue = line (front first).
-  </div>
-        `,
-    quiz: [
-      {
-        question: "What does LIFO stand for?",
-        options: ["Link In, Fold Out", "Last In, First Out", "List In, Fast Out", "Line In, First Out"],
-        correct: 1
-      },
-      {
-        question: "In a queue, where are new items added?",
-        options: ["The front", "The middle", "The back", "Randomly"],
-        correct: 2
-      }
-    ]
-  },
-  {
-    id: 'big-o-notation',
-    title: 'Big O Notation',
-    icon: '📉',
-    shortDesc: 'How we measure the efficiency of an algorithm as data grows.',
-    content: `
-  <div class="ls-hero">
-    <span class="ls-badge ls-badge--red">Complexity</span>
-    <p class="ls-lead"><strong>Big O Notation</strong> measures how an algorithm's speed or memory grows as input size increases. It's the language of efficiency.</p>
-  </div>
-
-  <div class="ls-section">
-    <h3 class="ls-section-title">The common complexities</h3>
-    <div class="ls-bigo-list">
-      <div class="ls-bigo-item ls-bigo--green">
-        <div class="ls-bigo-notation">O(1)</div>
-        <div class="ls-bigo-name">Constant</div>
-        <div class="ls-bigo-desc">Speed doesn't change no matter how big the data. Best case. (e.g., array index access)</div>
-      </div>
-      <div class="ls-bigo-item ls-bigo--yellow">
-        <div class="ls-bigo-notation">O(log n)</div>
-        <div class="ls-bigo-name">Logarithmic</div>
-        <div class="ls-bigo-desc">Grows slowly. Very efficient. (e.g., binary search)</div>
-      </div>
-      <div class="ls-bigo-item ls-bigo--orange">
-        <div class="ls-bigo-notation">O(n)</div>
-        <div class="ls-bigo-name">Linear</div>
-        <div class="ls-bigo-desc">Time grows proportionally with input. (e.g., simple list search)</div>
-      </div>
-      <div class="ls-bigo-item ls-bigo--red">
-        <div class="ls-bigo-notation">O(n²)</div>
-        <div class="ls-bigo-name">Quadratic</div>
-        <div class="ls-bigo-desc">Time grows fast! Usually means nested loops. (e.g., Bubble Sort)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ls-takeway-banner">
-    <span>💡</span> <strong>Goal:</strong> Always aim for the smallest Big O you can achieve.
-  </div>
-        `,
-    quiz: [
-      {
-        question: "Which Big O complexity is generally considered the fastest for large N?",
-        options: ["O(n²)", "O(n)", "O(1)", "O(log n)"],
-        correct: 2
-      },
-      {
-        question: "Searching through a simple list once usually has what complexity?",
-        options: ["Linear - O(n)", "Constant - O(1)", "Quadratic - O(n²)", "Exponential"],
-        correct: 0
-      }
-    ]
-  },
-  {
-    id: 'recursion',
-    title: 'Recursion',
-    icon: '🌀',
-    shortDesc: 'When a function calls itself to solve a smaller version of a problem.',
-    content: `
-  <div class="ls-hero">
-    <span class="ls-badge ls-badge--purple">Advanced Concept</span>
-    <p class="ls-lead"><strong>Recursion</strong> is when a function solves a problem by calling <em>itself</em> with a smaller version of the same problem.</p>
-  </div>
-
-  <div class="ls-analogy-block">
-    <div class="ls-analogy-icon">🪆</div>
-    <div>
-      <div class="ls-analogy-title">Think of Russian Dolls</div>
-      <div class="ls-analogy-text">Each doll contains a smaller version of itself — until you reach the smallest one (the base case).</div>
-    </div>
-  </div>
-
-  <div class="ls-section">
-    <h3 class="ls-section-title">Every recursive function needs 2 parts</h3>
-    <div class="ls-cards-row">
-      <div class="ls-info-card ls-info-card--green">
-        <div class="ls-info-icon">🛑</div>
-        <strong>Base Case</strong>
-        <p>The condition that <strong>stops</strong> the recursion. Without it → Stack Overflow crash.</p>
-      </div>
-      <div class="ls-info-card ls-info-card--blue">
-        <div class="ls-info-icon">🔁</div>
-        <strong>Recursive Step</strong>
-        <p>The function calls <strong>itself</strong> with a slightly smaller input.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="ls-visual-example">
-    <div class="ls-ve-label">Example: 5! (factorial)</div>
-    <div class="ls-recursion-chain">
-      <span class="ls-rc-item">5!</span>
-      <span class="ls-rc-arrow">= 5 × </span>
-      <span class="ls-rc-item">4!</span>
-      <span class="ls-rc-arrow">= 4 × </span>
-      <span class="ls-rc-item">3!</span>
-      <span class="ls-rc-arrow">= 3 × </span>
-      <span class="ls-rc-item ls-rc-base">1 ← base</span>
-    </div>
-  </div>
-
-  <div class="ls-takeway-banner">
-    <span>💡</span> <strong>Remember:</strong> No base case = infinite loop = crash. Always define when to stop.
-  </div>
-        `,
-    quiz: [
-      {
-        question: "What is the most important part of a recursive function to prevent it from running forever?",
-        options: ["The recursive step", "The function name", "The base case", "The return type"],
-        correct: 2
-      },
-      {
-        question: "What happens if a recursive call never hits a base case?",
-        options: ["The program speeds up", "Stack Overflow error", "It returns zero", "The computer restarts"],
-        correct: 1
-      }
-    ]
-  }
-
 ];
