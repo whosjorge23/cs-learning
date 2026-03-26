@@ -392,7 +392,7 @@ pi = 3.2; // ❌ error</div>
   <div class="ls-section">
     <h3 class="ls-section-title">So... what is an IF?</h3>
     <div class="ls-analogy-block">
-      <div class="ls-analogy-icon">🍕</div>
+      <div class="ls-analogy-icon"></div>
       <div>
         <div class="ls-analogy-title">Real World Decisions</div>
         <div class="ls-analogy-text">
