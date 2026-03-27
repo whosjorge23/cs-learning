@@ -79,75 +79,7 @@ const lessonData = [
       }
     ]
   },
-  {
-    id: 'bubble-sort',
-    title: 'Bubble Sort',
-    icon: '🧼',
-    shortDesc: 'One of the simplest sorting algorithms. Visualize how data elements "bubble" to the top.',
-    content: `
-  <div class="ls-hero">
-    <span class="ls-badge ls-badge--purple">Sorting Algorithm</span>
-    <p class="ls-lead"><strong>Bubble Sort</strong> repeatedly compares adjacent elements and swaps them if they're in the wrong order — like bubbles rising to the surface.</p>
-  </div>
 
-  <div class="ls-section">
-    <h3 class="ls-section-title">How it works — step by step</h3>
-    <div class="ls-numbered-list">
-      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div>Compare the first two items in the list.</div></div>
-      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div>If the first is <strong>greater</strong> than the second, <strong>swap</strong> them.</div></div>
-      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div>Move to the next pair and repeat until the end of the list.</div></div>
-      <div class="ls-nl-item"><span class="ls-nl-num">4</span><div>Repeat all passes until <strong>no more swaps</strong> are needed.</div></div>
-    </div>
-  </div>
-
-  <div class="ls-visual-example">
-    <div class="ls-ve-label">Example: sorting [5, 3, 8, 1]</div>
-    <div class="ls-bubble-row">
-      <div class="ls-bubble ls-bubble--swap">5</div>
-      <div class="ls-bubble ls-bubble--swap">3</div>
-      <div class="ls-bubble">8</div>
-      <div class="ls-bubble">1</div>
-    </div>
-    <div class="ls-ve-arrow">↓ after pass 1</div>
-    <div class="ls-bubble-row">
-      <div class="ls-bubble">3</div>
-      <div class="ls-bubble">5</div>
-      <div class="ls-bubble">1</div>
-      <div class="ls-bubble ls-bubble--done">8</div>
-    </div>
-    <div class="ls-ve-note">8 "bubbled up" to its correct position ✅</div>
-  </div>
-
-  <div class="ls-cards-row">
-    <div class="ls-info-card ls-info-card--green">
-      <div class="ls-info-icon">✅</div>
-      <strong>Pro</strong>
-      <p>Very simple to understand and implement.</p>
-    </div>
-    <div class="ls-info-card ls-info-card--red">
-      <div class="ls-info-icon">⚠️</div>
-      <strong>Con</strong>
-      <p>Slow for large lists — worst case is O(n²).</p>
-    </div>
-  </div>
-
-  <div class="ls-takeway-banner">
-    <span>💡</span> <strong>Remember:</strong> Largest values bubble up to the end with each pass.
-  </div>
-        `,
-    quiz: [
-      {
-        question: "What does Bubble Sort compare in each step?",
-        options: ["First and last items", "Random items", "Adjacent items", "The whole list"],
-        correct: 2
-      },
-      {
-        question: "Why is it called 'Bubble Sort'?",
-        options: ["It pops the data", "Larger elements 'bubble up' to the end", "It creates bubbles in memory", "It uses circular logic"],
-        correct: 1
-      }
-    ]
-  },
   {
     id: 'variables-constants',
     title: 'Variables & Constants',
@@ -356,7 +288,7 @@ pi = 3.2; // ❌ error</div>
     shortDesc: 'Learn how computers make decisions based on conditions.',
     content: `
   <div class="ls-hero">
-    <span class="ls-badge ls-badge--orange">Easy mode on</span>
+    <span class="ls-badge ls-badge--orange">Fundamentals</span>
     <p class="ls-lead">Computers make decisions step by step. Programs don't think... they just follow <strong>conditions</strong>.</p>
   </div>
 
@@ -507,33 +439,108 @@ pi = 3.2; // ❌ error</div>
     <p class="ls-lead"><strong>Loops</strong> let you repeat a block of code multiple times — without writing it over and over.</p>
   </div>
 
+  <div class="ls-section">
+    <h3 class="ls-section-title">A simple pattern</h3>
+    <div class="ls-steps">
+      <div class="ls-step ls-step--1">
+        <div class="ls-step-num">1</div>
+        <div class="ls-step-label">Initialize</div>
+        <div class="ls-step-sub">Set the start</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--2">
+        <div class="ls-step-num">2</div>
+        <div class="ls-step-label">Condition</div>
+        <div class="ls-step-sub">Keep going?</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--3">
+        <div class="ls-step-num">3</div>
+        <div class="ls-step-label">Action</div>
+        <div class="ls-step-sub">Run the code</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--4">
+        <div class="ls-step-num">4</div>
+        <div class="ls-step-label">Update</div>
+        <div class="ls-step-sub">Change counter</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Real World Repetition</h3>
+    <div class="ls-analogy-block">
+      <div class="ls-analogy-icon">🏃‍♂️</div>
+      <div>
+        <div class="ls-analogy-title">How we loop in real life</div>
+        <div class="ls-analogy-text">
+          • <strong>For loop:</strong> Do exactly 10 pushups.<br>
+          • <strong>While loop:</strong> Walk forward until you hit a wall.<br>
+          • <strong>Do-While loop:</strong> Eat one bite, then check if you're still hungry.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="ls-compare-grid">
     <div class="ls-compare-card ls-compare-card--blue">
       <div class="ls-compare-icon">🔢</div>
       <div class="ls-compare-title">For Loop</div>
       <div class="ls-compare-sub">Use when you <strong>know</strong> the count</div>
-      <div class="ls-code-block">for (let i = 0; i &lt; 5; i++) {
-  console.log(i);
+      <div class="ls-code-block">for (let i = 0; i < 5; i++) {
+  console.log("Repeat 5 times");
 }</div>
+      <p>Like running laps on a track.</p>
     </div>
     <div class="ls-compare-card ls-compare-card--orange">
       <div class="ls-compare-icon">🔄</div>
       <div class="ls-compare-title">While Loop</div>
       <div class="ls-compare-sub">Use when you <strong>don't know</strong> the count</div>
-      <div class="ls-code-block">let count = 0;
-while (count &lt; 5) {
-  count++;
+      <div class="ls-code-block">let isHungry = true;
+while (isHungry) {
+  eat();
+  isHungry = checkStomach();
 }</div>
+      <p>Like waiting in line until it's your turn.</p>
     </div>
   </div>
 
   <div class="ls-section">
-    <h3 class="ls-section-title">How a For Loop works</h3>
+    <h3 class="ls-section-title">Loop Control: Break & Continue</h3>
     <div class="ls-numbered-list">
-      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div>Initialize a counter <code>(let i = 0)</code>.</div></div>
-      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div>Check the condition <code>(i &lt; 5)</code>.</div></div>
-      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div>Run the code block.</div></div>
-      <div class="ls-nl-item"><span class="ls-nl-num">4</span><div>Increase the counter <code>(i++)</code> and go back to step 2.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div><strong>BREAK</strong>: Stops the loop immediately. Exit now!</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div><strong>CONTINUE</strong>: Skips the rest of this turn and starts the next one.</div></div>
+    </div>
+    <div class="ls-code-block">for (let i = 1; i <= 10; i++) {
+  if (i === 5) break; // Stops at 5
+  console.log(i);
+}</div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Why It Matters</h3>
+    <div class="ls-cards-row">
+      <div class="ls-info-card ls-info-card--blue">
+        <div class="ls-info-icon">📋</div>
+        <strong>Lists</strong>
+        <p>Displaying 100 products on a page automatically.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--green">
+        <div class="ls-info-icon">🎮</div>
+        <strong>Games</strong>
+        <p>The "game loop" that updates the screen 60 times a second.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--orange">
+        <div class="ls-info-icon">🔎</div>
+        <strong>Searching</strong>
+        <p>Looking through all your files for a specific name.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--purple">
+        <div class="ls-info-icon">📧</div>
+        <strong>Automation</strong>
+        <p>Sending the same email to a list of subscribers.</p>
+      </div>
     </div>
   </div>
 
@@ -543,7 +550,7 @@ while (count &lt; 5) {
   </div>
 
   <div class="ls-takeway-banner">
-    <span>💡</span> <strong>Shortcut:</strong> For = known count. While = condition-based.
+    <span>💡</span> <strong>Final sentence:</strong> Loops save time by automating repetitive tasks — making computers do the boring work.
   </div>
         `,
     quiz: [
@@ -558,9 +565,78 @@ while (count &lt; 5) {
         correct: 1
       },
       {
-        question: "What does i++ do in a for loop?",
-        options: ["Resets the counter", "Decreases i by 1", "Increases i by 1", "Checks the condition"],
+        question: "What keyword is used to stop a loop immediately?",
+        options: ["stop", "exit", "break", "continue"],
         correct: 2
+      }
+    ]
+  },
+  {
+    id: 'bubble-sort',
+    title: 'Bubble Sort',
+    icon: '🧼',
+    shortDesc: 'One of the simplest sorting algorithms. Visualize how data elements "bubble" to the top.',
+    content: `
+  <div class="ls-hero">
+    <span class="ls-badge ls-badge--purple">Sorting Algorithm</span>
+    <p class="ls-lead"><strong>Bubble Sort</strong> repeatedly compares adjacent elements and swaps them if they're in the wrong order — like bubbles rising to the surface.</p>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">How it works — step by step</h3>
+    <div class="ls-numbered-list">
+      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div>Compare the first two items in the list.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div>If the first is <strong>greater</strong> than the second, <strong>swap</strong> them.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div>Move to the next pair and repeat until the end of the list.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">4</span><div>Repeat all passes until <strong>no more swaps</strong> are needed.</div></div>
+    </div>
+  </div>
+
+  <div class="ls-visual-example">
+    <div class="ls-ve-label">Example: sorting [5, 3, 8, 1]</div>
+    <div class="ls-bubble-row">
+      <div class="ls-bubble ls-bubble--swap">5</div>
+      <div class="ls-bubble ls-bubble--swap">3</div>
+      <div class="ls-bubble">8</div>
+      <div class="ls-bubble">1</div>
+    </div>
+    <div class="ls-ve-arrow">↓ after pass 1</div>
+    <div class="ls-bubble-row">
+      <div class="ls-bubble">3</div>
+      <div class="ls-bubble">5</div>
+      <div class="ls-bubble">1</div>
+      <div class="ls-bubble ls-bubble--done">8</div>
+    </div>
+    <div class="ls-ve-note">8 "bubbled up" to its correct position ✅</div>
+  </div>
+
+  <div class="ls-cards-row">
+    <div class="ls-info-card ls-info-card--green">
+      <div class="ls-info-icon">✅</div>
+      <strong>Pro</strong>
+      <p>Very simple to understand and implement.</p>
+    </div>
+    <div class="ls-info-card ls-info-card--red">
+      <div class="ls-info-icon">⚠️</div>
+      <strong>Con</strong>
+      <p>Slow for large lists — worst case is O(n²).</p>
+    </div>
+  </div>
+
+  <div class="ls-takeway-banner">
+    <span>💡</span> <strong>Remember:</strong> Largest values bubble up to the end with each pass.
+  </div>
+        `,
+    quiz: [
+      {
+        question: "What does Bubble Sort compare in each step?",
+        options: ["First and last items", "Random items", "Adjacent items", "The whole list"],
+        correct: 2
+      },
+      {
+        question: "Why is it called 'Bubble Sort'?",
+        options: ["It pops the data", "Larger elements 'bubble up' to the end", "It creates bubbles in memory", "It uses circular logic"],
+        correct: 1
       }
     ]
   },
