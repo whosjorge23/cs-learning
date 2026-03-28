@@ -3,7 +3,22 @@ const lessonData = [
     id: 'algorithms',
     title: 'What is an Algorithm?',
     icon: '⚡',
+    level: 'Beginner',
+    path: 'Foundations',
+    pathDescription: 'Start with the building blocks of how programs think and store information.',
     shortDesc: 'The foundation of all computer science. Learn how we solve problems step-by-step.',
+    miniPractice: {
+      title: 'Spot The Algorithm',
+      question: 'Which choice is a true algorithm?',
+      options: [
+        'A vague tip like "just solve it somehow"',
+        'A step-by-step recipe with a clear start and finish',
+        'A random list of words'
+      ],
+      correct: 1,
+      success: 'Exactly. Algorithms are precise instructions, not loose ideas.',
+      retry: 'Look for the option with clear ordered steps and a definite ending.'
+    },
     content: `
   <div class="ls-hero">
     <span class="ls-badge ls-badge--blue">Core Concept</span>
@@ -70,12 +85,14 @@ const lessonData = [
       {
         question: "Which of the following is the best analogy for an algorithm?",
         options: ["A storybook", "A recipe", "A painting", "A mirror"],
-        correct: 1
+        correct: 1,
+        explanation: "A recipe works because it gives clear ordered steps, just like an algorithm."
       },
       {
         question: "What must an algorithm eventually do?",
         options: ["Repeat forever", "Change its goal", "End (terminate)", "Use all memory"],
-        correct: 2
+        correct: 2,
+        explanation: "An algorithm must be finite, which means it eventually stops instead of running forever."
       }
     ]
   },
@@ -84,7 +101,18 @@ const lessonData = [
     id: 'variables-constants',
     title: 'Variables & Constants',
     icon: '📦',
+    level: 'Beginner',
+    path: 'Foundations',
+    pathDescription: 'Start with the building blocks of how programs think and store information.',
     shortDesc: 'Learn how programs store information using variables and constants.',
+    miniPractice: {
+      title: 'Pick The Right Container',
+      question: 'You want to store a player score that changes during a game. Which is the better choice?',
+      options: ['A constant', 'A variable', 'Neither'],
+      correct: 1,
+      success: 'Right. Scores change over time, so a variable fits best.',
+      retry: 'Ask whether the value needs to change later. If yes, choose a variable.'
+    },
     content: `
   <div class="ls-hero">
     <span class="ls-badge ls-badge--green">Fundamentals</span>
@@ -127,17 +155,20 @@ pi = 3.2; // ❌ error</div>
       {
         question: "What is the main difference between a variable and a constant?",
         options: ["Variables are faster", "Constants can change value", "Variables can change value, constants cannot", "They are exactly the same"],
-        correct: 2
+        correct: 2,
+        explanation: "Variables can hold changing values, while constants stay fixed after assignment."
       },
       {
         question: "Which keyword is typically used to declare a constant in JavaScript?",
         options: ["var", "let", "const", "define"],
-        correct: 2
+        correct: 2,
+        explanation: "`const` is the standard JavaScript keyword for declaring a value that should not be reassigned."
       },
       {
         question: "What symbol is used to assign a value?",
         options: ["==", "=", ":", "->"],
-        correct: 1
+        correct: 1,
+        explanation: "The single equals sign assigns a value. Double equals or triple equals compare values instead."
       }
     ]
   },
@@ -145,7 +176,18 @@ pi = 3.2; // ❌ error</div>
     id: 'boolean-logic',
     title: 'Boolean Logic',
     icon: '⚖️',
+    level: 'Beginner',
+    path: 'Logic & Control Flow',
+    pathDescription: 'Learn how computers make choices, branch, and repeat work.',
     shortDesc: 'Learn how computers make decisions using TRUE and FALSE.',
+    miniPractice: {
+      title: 'True Or False',
+      question: 'If BOTH conditions must be true, which operator idea matches that rule?',
+      options: ['AND', 'OR', 'NOT'],
+      correct: 0,
+      success: 'Yes. AND only succeeds when both conditions are true.',
+      retry: 'Think of the stricter rule: both statements must pass.'
+    },
     content: `
   <div class="ls-hero">
     <span class="ls-badge ls-badge--teal">Easy Mode On</span>
@@ -267,17 +309,20 @@ pi = 3.2; // ❌ error</div>
       {
         question: "What are the two possible values in Boolean logic?",
         options: ["Yes and Maybe", "True and False", "1 and 2", "Up and Down"],
-        correct: 1
+        correct: 1,
+        explanation: "Boolean logic reduces decisions to two states only: true or false."
       },
       {
         question: "Which operator requires BOTH conditions to be true?",
         options: ["OR (||)", "NOT (!)", "AND (&&)", "MAYBE"],
-        correct: 2
+        correct: 2,
+        explanation: "AND is the operator that only returns true when both conditions are true."
       },
       {
         question: "If a condition is True, what does the NOT (!) operator turn it into?",
         options: ["True", "False", "Both", "Nothing"],
-        correct: 1
+        correct: 1,
+        explanation: "NOT flips the value, so true becomes false and false becomes true."
       }
     ]
   },
@@ -285,7 +330,18 @@ pi = 3.2; // ❌ error</div>
     id: 'if-else-statements',
     title: 'If, Else & Else If',
     icon: '⚖️',
+    level: 'Intermediate',
+    path: 'Logic & Control Flow',
+    pathDescription: 'Learn how computers make choices, branch, and repeat work.',
     shortDesc: 'Learn how computers make decisions based on conditions.',
+    miniPractice: {
+      title: 'Choose The Branch',
+      question: 'If `isLoggedIn` is false, which branch runs?',
+      options: ['The `if` block', 'The `else` block', 'Both blocks'],
+      correct: 1,
+      success: 'Exactly. The `else` block is the fallback when the `if` condition is false.',
+      retry: 'Trace the condition first. A false `if` sends execution to the fallback branch.'
+    },
     content: `
   <div class="ls-hero">
     <span class="ls-badge ls-badge--orange">Fundamentals</span>
@@ -414,17 +470,20 @@ pi = 3.2; // ❌ error</div>
       {
         question: "What happens if an 'IF' condition is FALSE and there is no 'ELSE' block?",
         options: ["The program crashes", "The code inside is skipped", "The code inside runs anyway", "It asks the user what to do"],
-        correct: 1
+        correct: 1,
+        explanation: "If there is no `else`, the program simply skips the code inside the false `if` block and moves on."
       },
       {
         question: "When should you use 'ELSE IF'?",
         options: ["When you have only one choice", "When you have multiple different conditions to check", "When you want to repeat code", "Only at the end of a program"],
-        correct: 1
+        correct: 1,
+        explanation: "`else if` is useful when you need to test several possible conditions in order."
       },
       {
         question: "Which part of an IF-ELSE statement runs if the condition is TRUE?",
         options: ["The ELSE block", "The IF block", "Both blocks", "Neither block"],
-        correct: 1
+        correct: 1,
+        explanation: "When the condition is true, the code inside the `if` block runs and the `else` block is skipped."
       }
     ]
   },
@@ -432,7 +491,18 @@ pi = 3.2; // ❌ error</div>
     id: 'for-while-loops',
     title: 'For & While Loops',
     icon: '🔁',
+    level: 'Intermediate',
+    path: 'Logic & Control Flow',
+    pathDescription: 'Learn how computers make choices, branch, and repeat work.',
     shortDesc: 'Learn how loops repeat instructions efficiently using for and while statements.',
+    miniPractice: {
+      title: 'Loop Match',
+      question: 'You know you need to repeat a task exactly 5 times. Which loop usually fits best?',
+      options: ['For loop', 'While loop', 'No loop'],
+      correct: 0,
+      success: 'Nice. A `for` loop is usually the clearest choice when the repeat count is known.',
+      retry: 'Choose the loop that naturally includes a counter and stopping condition.'
+    },
     content: `
   <div class="ls-hero">
     <span class="ls-badge ls-badge--purple">Control Flow</span>
@@ -557,17 +627,20 @@ while (isHungry) {
       {
         question: "When is a for loop usually preferred?",
         options: ["When you know the number of repetitions", "When the loop runs forever", "When you don't need a condition", "When using constants only"],
-        correct: 0
+        correct: 0,
+        explanation: "A `for` loop is best when you already know how many iterations you want."
       },
       {
         question: "What happens if a while loop's condition never becomes false?",
         options: ["It stops automatically", "It creates an infinite loop", "It throws a syntax error", "It runs only once"],
-        correct: 1
+        correct: 1,
+        explanation: "If the condition never changes to false, the loop keeps running forever and becomes an infinite loop."
       },
       {
         question: "What keyword is used to stop a loop immediately?",
         options: ["stop", "exit", "break", "continue"],
-        correct: 2
+        correct: 2,
+        explanation: "`break` exits the loop immediately, even if the normal condition would keep it going."
       }
     ]
   },
@@ -575,7 +648,18 @@ while (isHungry) {
     id: 'bubble-sort',
     title: 'Bubble Sort',
     icon: '🧼',
+    level: 'Advanced',
+    path: 'Algorithms',
+    pathDescription: 'Move from fundamentals into algorithmic thinking and performance ideas.',
     shortDesc: 'One of the simplest sorting algorithms. Visualize how data elements "bubble" to the top.',
+    miniPractice: {
+      title: 'Predict The Swap',
+      question: 'In Bubble Sort, what do you compare first during a pass?',
+      options: ['The smallest and largest numbers', 'Two adjacent items', 'Every item at the same time'],
+      correct: 1,
+      success: 'Exactly. Bubble Sort works by comparing neighboring items and swapping when needed.',
+      retry: 'Think local, not global. Bubble Sort only checks nearby pairs one step at a time.'
+    },
     content: `
   <div class="ls-hero">
     <span class="ls-badge ls-badge--purple">Sorting Algorithm</span>
@@ -631,12 +715,14 @@ while (isHungry) {
       {
         question: "What does Bubble Sort compare in each step?",
         options: ["First and last items", "Random items", "Adjacent items", "The whole list"],
-        correct: 2
+        correct: 2,
+        explanation: "Bubble Sort compares neighboring elements because it swaps local pairs one step at a time."
       },
       {
         question: "Why is it called 'Bubble Sort'?",
         options: ["It pops the data", "Larger elements 'bubble up' to the end", "It creates bubbles in memory", "It uses circular logic"],
-        correct: 1
+        correct: 1,
+        explanation: "On each pass, larger values move toward the end of the list, which looks like them bubbling upward."
       }
     ]
   },

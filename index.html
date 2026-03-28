@@ -37,6 +37,20 @@
       <p class="tagline">Interactive lessons designed to make complex topics simple. Start your journey into the world
         of algorithms and data structures today.</p>
 
+      <section class="path-overview" id="path-overview">
+        <!-- Path cards injected by JS -->
+      </section>
+
+      <section class="level-filters">
+        <div class="section-heading">
+          <h2>Choose Your Level</h2>
+          <p>Follow a path or filter the lessons to match your current pace.</p>
+        </div>
+        <div class="filter-chip-row" id="level-filter-list">
+          <!-- Level filters injected by JS -->
+        </div>
+      </section>
+
       <!-- Daily Challenge Card -->
       <section id="daily-challenge-container" style="display: none;">
         <div class="glass-card daily-card" id="daily-challenge-card">
@@ -68,8 +82,21 @@
     <section id="lesson-view" class="view">
       <a href="#" class="btn back-btn" id="btn-back-home">← Back to Courses</a>
       <div class="lesson-content glass-card">
+        <div class="lesson-meta" id="lesson-meta"></div>
         <h2 id="lesson-title" style="font-size: 2.5rem; margin-bottom: 1rem;"></h2>
         <div id="lesson-body" style="font-size: 1.1rem; color: var(--text-muted)"></div>
+        <section class="mini-practice glass-subcard" id="mini-practice-section" style="display: none;">
+          <div class="mini-practice-header">
+            <div>
+              <p class="mini-practice-label">Mini Practice</p>
+              <h3 id="mini-practice-title">Quick Check</h3>
+            </div>
+            <span class="mini-practice-pill">Before the quiz</span>
+          </div>
+          <p id="mini-practice-question" class="mini-practice-question"></p>
+          <div id="mini-practice-options" class="quiz-options"></div>
+          <div id="mini-practice-feedback" class="mini-practice-feedback"></div>
+        </section>
         <div class="progress-container">
           <div class="progress-bar" id="lesson-progress"></div>
         </div>
@@ -80,6 +107,7 @@
     <!-- Quiz View -->
     <section id="quiz-view" class="view">
       <div class="lesson-content glass-card">
+        <div class="quiz-progress-text" id="quiz-progress-text"></div>
         <h3 id="quiz-question" style="font-size: 1.5rem; margin-bottom: 2rem;"></h3>
         <div class="quiz-options" id="quiz-options-container">
           <!-- Options injected by JS -->
@@ -95,6 +123,7 @@
       <div class="lesson-content glass-card" style="text-align: center;">
         <h2 style="font-size: 3rem; margin-bottom: 1rem;">Course Complete!</h2>
         <p id="results-score" style="font-size: 1.25rem; margin-bottom: 2rem;"></p>
+        <div id="results-review" class="results-review"></div>
         <button class="btn btn-primary" onclick="app.showHome()">Return Home</button>
       </div>
     </section>

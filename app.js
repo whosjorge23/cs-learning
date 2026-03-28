@@ -3,6 +3,7 @@ class App {
     this.currentLesson = null;
     this.currentQuestionIndex = 0;
     this.score = 0;
+    this.selectedLevel = 'All Levels';
     this.gpa = parseFloat(localStorage.getItem('cs-gpa')) || 0;
     this.completedLessons = JSON.parse(localStorage.getItem('cs-completed-lessons')) || [];
     this.theme = localStorage.getItem('cs-theme') || 'light';
@@ -17,6 +18,8 @@ class App {
 
   init() {
     this.applyTheme();
+    this.renderPaths();
+    this.renderLevelFilters();
     this.renderHome();
     this.updateStats();
     this.renderAchievements();
@@ -71,6 +74,7 @@ class App {
     // Choose challenge based on date hash
     const dayHash = new Date().getDate() % dailyChallengeData.length;
     this.currentDaily = dailyChallengeData[dayHash];
+    document.getElementById('daily-title').innerText = this.currentDaily.question;
 
     container.style.display = 'block';
 
@@ -106,11 +110,19 @@ class App {
 
   renderHome() {
     const list = document.getElementById('course-list');
-    list.innerHTML = lessonData.map(lesson => {
+    const lessonsToRender = this.selectedLevel === 'All Levels'
+      ? lessonData
+      : lessonData.filter(lesson => lesson.level === this.selectedLevel);
+
+    list.innerHTML = lessonsToRender.map(lesson => {
       const isCompleted = this.completedLessons.includes(lesson.id);
       return `
         <div class="glass-card course-card ${isCompleted ? 'completed' : ''}" onclick="app.showLesson('${lesson.id}')">
           ${isCompleted ? '<div class="completion-badge">Completed</div>' : ''}
+          <div class="course-card-meta">
+            <span class="course-level-badge">${lesson.level}</span>
+            <span class="course-path-label">${lesson.path}</span>
+          </div>
           <div class="course-icon">${lesson.icon}</div>
           <h3>${lesson.title}</h3>
           <p>${lesson.shortDesc}</p>
@@ -120,6 +132,15 @@ class App {
         </div>
       `;
     }).join('');
+
+    if (!lessonsToRender.length) {
+      list.innerHTML = `
+        <div class="glass-card empty-state">
+          <h3>No lessons in this level yet.</h3>
+          <p>Switch filters to explore the rest of the curriculum.</p>
+        </div>
+      `;
+    }
   }
 
   showView(viewId) {
@@ -134,8 +155,13 @@ class App {
 
   showLesson(id) {
     this.currentLesson = lessonData.find(l => l.id === id);
+    document.getElementById('lesson-meta').innerHTML = `
+      <span class="course-level-badge">${this.currentLesson.level}</span>
+      <span class="course-path-label">${this.currentLesson.path}</span>
+    `;
     document.getElementById('lesson-title').innerText = this.currentLesson.title;
     document.getElementById('lesson-body').innerHTML = this.currentLesson.content;
+    this.renderMiniPractice();
     document.getElementById('lesson-progress').style.width = '0%';
     this.showView('lesson-view');
 
@@ -156,8 +182,10 @@ class App {
 
   renderQuestion() {
     const question = this.currentLesson.quiz[this.currentQuestionIndex];
+    document.getElementById('quiz-progress-text').innerText = `Question ${this.currentQuestionIndex + 1} of ${this.currentLesson.quiz.length}`;
     document.getElementById('quiz-question').innerText = question.question;
     document.getElementById('quiz-feedback').innerText = '';
+    document.getElementById('quiz-feedback').className = '';
     document.getElementById('btn-next-question').style.display = 'none';
 
     const container = document.getElementById('quiz-options-container');
@@ -175,21 +203,28 @@ class App {
 
     if (index === question.correct) {
       buttons[index].classList.add('correct');
-      document.getElementById('quiz-feedback').innerText = '✨ Correct!';
-      document.getElementById('quiz-feedback').style.color = 'var(--accent)';
+      document.getElementById('quiz-feedback').innerHTML = `
+        <strong>Correct.</strong>
+        <span>${question.explanation || 'Nice work. You picked the right answer.'}</span>
+      `;
+      document.getElementById('quiz-feedback').className = 'quiz-feedback-box correct';
       this.score++;
     } else {
       buttons[index].classList.add('incorrect');
       buttons[question.correct].classList.add('correct');
-      document.getElementById('quiz-feedback').innerText = '❌ Not quite. The correct answer is highlighted.';
-      document.getElementById('quiz-feedback').style.color = '#ef4444';
+      document.getElementById('quiz-feedback').innerHTML = `
+        <strong>Not quite.</strong>
+        <span>${question.explanation || `The correct answer is ${question.options[question.correct]}.`}</span>
+      `;
+      document.getElementById('quiz-feedback').className = 'quiz-feedback-box incorrect';
     }
 
     this.answers.push({
       question: question.question,
       userAnswer: question.options[index],
       correctAnswer: question.options[question.correct],
-      isCorrect: index === question.correct
+      isCorrect: index === question.correct,
+      explanation: question.explanation || ''
     });
 
     document.getElementById('btn-next-question').style.display = 'inline-flex';
@@ -238,6 +273,7 @@ class App {
 
     this.updateStats();
     this.renderHome(); // Refresh home grid
+    this.renderPaths();
     this.renderAchievements(); // Refresh achievements
     this.checkDailyChallenge();
 
@@ -246,6 +282,7 @@ class App {
     document.getElementById('results-score').innerText = percentage >= 100 ?
       `Perfect score! You've mastered this topic.` :
       `You got ${this.score} out of ${total} correct (${percentage}%).`;
+    this.renderResultsReview();
     this.showView('results-view');
   }
 
@@ -263,6 +300,121 @@ class App {
         </div>
       `;
     }).join('');
+  }
+
+  renderPaths() {
+    const container = document.getElementById('path-overview');
+    if (!container) return;
+
+    const paths = [...new Set(lessonData.map(lesson => lesson.path))];
+    container.innerHTML = paths.map(path => {
+      const pathLessons = lessonData.filter(lesson => lesson.path === path);
+      const completed = pathLessons.filter(lesson => this.completedLessons.includes(lesson.id)).length;
+      return `
+        <article class="glass-card path-card">
+          <p class="path-kicker">Learning Path</p>
+          <h3>${path}</h3>
+          <p>${pathLessons[0].pathDescription}</p>
+          <div class="path-stats">
+            <span>${pathLessons.length} lessons</span>
+            <span>${completed} completed</span>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  renderLevelFilters() {
+    const container = document.getElementById('level-filter-list');
+    if (!container) return;
+
+    const levels = ['All Levels', ...new Set(lessonData.map(lesson => lesson.level))];
+    container.innerHTML = levels.map(level => `
+      <button
+        class="filter-chip ${level === this.selectedLevel ? 'active' : ''}"
+        onclick="app.setLevelFilter('${level}')"
+      >
+        ${level}
+      </button>
+    `).join('');
+  }
+
+  setLevelFilter(level) {
+    this.selectedLevel = level;
+    this.renderLevelFilters();
+    this.renderHome();
+  }
+
+  renderMiniPractice() {
+    const section = document.getElementById('mini-practice-section');
+    const practice = this.currentLesson.miniPractice;
+
+    if (!practice) {
+      section.style.display = 'none';
+      return;
+    }
+
+    section.style.display = 'block';
+    document.getElementById('mini-practice-title').innerText = practice.title;
+    document.getElementById('mini-practice-question').innerText = practice.question;
+    document.getElementById('mini-practice-feedback').innerHTML = '';
+    document.getElementById('mini-practice-feedback').className = 'mini-practice-feedback';
+    document.getElementById('mini-practice-options').innerHTML = practice.options.map((option, index) => `
+      <button class="option-btn" onclick="app.checkMiniPractice(${index})">${option}</button>
+    `).join('');
+  }
+
+  checkMiniPractice(index) {
+    const practice = this.currentLesson.miniPractice;
+    const buttons = document.querySelectorAll('#mini-practice-options .option-btn');
+    const feedback = document.getElementById('mini-practice-feedback');
+
+    buttons.forEach(button => button.disabled = true);
+
+    if (index === practice.correct) {
+      buttons[index].classList.add('correct');
+      feedback.className = 'mini-practice-feedback correct';
+      feedback.innerHTML = `<strong>Nice.</strong> <span>${practice.success}</span>`;
+      return;
+    }
+
+    buttons[index].classList.add('incorrect');
+    buttons[practice.correct].classList.add('correct');
+    feedback.className = 'mini-practice-feedback incorrect';
+    feedback.innerHTML = `<strong>Try this mental model:</strong> <span>${practice.retry}</span>`;
+  }
+
+  renderResultsReview() {
+    const review = document.getElementById('results-review');
+    if (!review) return;
+
+    const mistakes = this.answers.filter(answer => !answer.isCorrect);
+
+    if (!mistakes.length) {
+      review.innerHTML = `
+        <div class="review-summary review-summary--perfect">
+          <h3>No mistakes to review</h3>
+          <p>You answered every question correctly. Keep that momentum going.</p>
+        </div>
+      `;
+      return;
+    }
+
+    review.innerHTML = `
+      <div class="review-summary">
+        <h3>Mistake Review</h3>
+        <p>Look over the questions you missed so the next attempt feels easier.</p>
+      </div>
+      ${mistakes.map((answer, index) => `
+        <article class="review-card">
+          <p class="review-label">Missed Question ${index + 1}</p>
+          <h4>${answer.question}</h4>
+          <p><strong>Your answer:</strong> ${answer.userAnswer}</p>
+          <p><strong>Correct answer:</strong> ${answer.correctAnswer}</p>
+          <p><strong>Why:</strong> ${answer.explanation || 'Review the lesson and try again.'}</p>
+        </article>
+      `).join('')}
+    `;
   }
 
   downloadResults() {
