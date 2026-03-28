@@ -6,6 +6,10 @@ class App {
     this.selectedLevel = 'All Levels';
     this.gpa = parseFloat(localStorage.getItem('cs-gpa')) || 0;
     this.completedLessons = JSON.parse(localStorage.getItem('cs-completed-lessons')) || [];
+    this.lessonAttempts = JSON.parse(localStorage.getItem('cs-lesson-attempts')) || {};
+    this.lessonBestScores = JSON.parse(localStorage.getItem('cs-lesson-best-scores')) || {};
+    this.firstTryPerfectLessons = JSON.parse(localStorage.getItem('cs-first-try-perfect-lessons')) || [];
+    this.quizHistory = JSON.parse(localStorage.getItem('cs-quiz-history')) || [];
     this.theme = localStorage.getItem('cs-theme') || 'light';
     this.streak = parseInt(localStorage.getItem('cs-streak')) || 0;
     this.lastChallengeDate = localStorage.getItem('cs-last-challenge-date') || '';
@@ -64,6 +68,10 @@ class App {
     localStorage.setItem('cs-gpa', this.gpa);
     localStorage.setItem('cs-streak', this.streak);
     localStorage.setItem('cs-last-challenge-date', this.lastChallengeDate);
+    localStorage.setItem('cs-lesson-attempts', JSON.stringify(this.lessonAttempts));
+    localStorage.setItem('cs-lesson-best-scores', JSON.stringify(this.lessonBestScores));
+    localStorage.setItem('cs-first-try-perfect-lessons', JSON.stringify(this.firstTryPerfectLessons));
+    localStorage.setItem('cs-quiz-history', JSON.stringify(this.quizHistory));
   }
 
   checkDailyChallenge() {
@@ -259,6 +267,24 @@ class App {
       }
       this.isDailyChallenge = false;
     } else {
+      const attemptCount = (this.lessonAttempts[this.currentLesson.id] || 0) + 1;
+      this.lessonAttempts[this.currentLesson.id] = attemptCount;
+      this.lessonBestScores[this.currentLesson.id] = Math.max(
+        this.lessonBestScores[this.currentLesson.id] || 0,
+        percentage
+      );
+      this.quizHistory.push({
+        lessonId: this.currentLesson.id,
+        score: this.score,
+        total,
+        percentage,
+        perfect: percentage === 100
+      });
+
+      if (percentage === 100 && attemptCount === 1 && !this.firstTryPerfectLessons.includes(this.currentLesson.id)) {
+        this.firstTryPerfectLessons.push(this.currentLesson.id);
+      }
+
       // Update GPA (very simple logic: weighted average)
       const lessonWeight = 4 / lessonData.length;
       this.gpa = (this.gpa * 0.9) + ((this.score / total) * lessonWeight);
@@ -415,6 +441,24 @@ class App {
         </article>
       `).join('')}
     `;
+  }
+
+  getAverageAccuracy() {
+    if (!this.quizHistory.length) return 0;
+
+    const totalPercentage = this.quizHistory.reduce((sum, attempt) => sum + attempt.percentage, 0);
+    return totalPercentage / this.quizHistory.length;
+  }
+
+  getCompletedLessonsByLevel(level) {
+    return lessonData.filter(lesson =>
+      lesson.level === level && this.completedLessons.includes(lesson.id)
+    ).length;
+  }
+
+  hasCompletedPath(path) {
+    const pathLessons = lessonData.filter(lesson => lesson.path === path);
+    return pathLessons.length > 0 && pathLessons.every(lesson => this.completedLessons.includes(lesson.id));
   }
 
   downloadResults() {

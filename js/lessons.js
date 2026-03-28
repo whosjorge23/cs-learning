@@ -173,6 +173,138 @@ pi = 3.2; // ❌ error</div>
     ]
   },
   {
+    id: 'binary-basics',
+    title: 'Binary: 0s and 1s',
+    icon: '💾',
+    level: 'Beginner',
+    path: 'Foundations',
+    pathDescription: 'Start with the building blocks of how programs think and store information.',
+    shortDesc: 'Learn how computers use only 0 and 1 to represent numbers, text, images, and more.',
+    miniPractice: {
+      title: 'Bit Check',
+      question: 'In binary, what symbols are used to store information?',
+      options: ['0 and 1', 'A and B', '1 through 10'],
+      correct: 0,
+      success: 'Exactly. Binary uses just two digits: 0 and 1.',
+      retry: 'Think of the smallest possible alphabet a computer can use.'
+    },
+    content: `
+  <div class="ls-hero">
+    <span class="ls-badge ls-badge--blue">Core Concept</span>
+    <p class="ls-lead"><strong>Binary</strong> is the language computers use at the lowest level. Instead of ten digits like humans use, computers work with only <strong>0</strong> and <strong>1</strong>.</p>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Why only 0 and 1?</h3>
+    <div class="ls-analogy-block">
+      <div class="ls-analogy-icon">💡</div>
+      <div>
+        <div class="ls-analogy-title">Think like a light switch</div>
+        <div class="ls-analogy-text">A switch can be <strong>off</strong> or <strong>on</strong>. Computers are built from tiny electronic parts that are also easiest to read as two states: off = 0, on = 1.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">A bit and a byte</h3>
+    <div class="ls-cards-row">
+      <div class="ls-info-card ls-info-card--blue">
+        <div class="ls-info-icon">1️⃣</div>
+        <strong>Bit</strong>
+        <p>A single binary digit. It can be either 0 or 1.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--green">
+        <div class="ls-info-icon">8️⃣</div>
+        <strong>Byte</strong>
+        <p>A group of 8 bits. Bytes are often used to store one character like A or B.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--orange">
+        <div class="ls-info-icon">🧱</div>
+        <strong>Big Idea</strong>
+        <p>Everything on a computer is built from huge patterns of bits.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Binary numbers work by place value</h3>
+    <div class="ls-numbered-list">
+      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div>In normal decimal, places are worth 1, 10, 100, 1000...</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div>In binary, places are worth 1, 2, 4, 8, 16...</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div>If a place has a 1, include that value. If it has a 0, skip it.</div></div>
+    </div>
+  </div>
+
+  <div class="ls-visual-example">
+    <div class="ls-ve-label">Example: binary 1011</div>
+    <div class="ls-bubble-row">
+      <div class="ls-bubble">8</div>
+      <div class="ls-bubble">4</div>
+      <div class="ls-bubble">2</div>
+      <div class="ls-bubble">1</div>
+    </div>
+    <div class="ls-ve-arrow">↓ bits</div>
+    <div class="ls-bubble-row">
+      <div class="ls-bubble ls-bubble--done">1</div>
+      <div class="ls-bubble">0</div>
+      <div class="ls-bubble ls-bubble--done">1</div>
+      <div class="ls-bubble ls-bubble--done">1</div>
+    </div>
+    <div class="ls-ve-note">1011₂ = 1×8 + 0×4 + 1×2 + 1×1 = 11₁₀</div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">What can binary represent?</h3>
+    <div class="ls-cards-row">
+      <div class="ls-info-card ls-info-card--purple">
+        <div class="ls-info-icon">🔢</div>
+        <strong>Numbers</strong>
+        <p>Whole numbers can be stored as patterns of bits.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--blue">
+        <div class="ls-info-icon">🔤</div>
+        <strong>Text</strong>
+        <p>Letters are stored by assigning each character a binary code.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--green">
+        <div class="ls-info-icon">🖼️</div>
+        <strong>Images</strong>
+        <p>Pictures are stored as pixel data, which also becomes binary.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--orange">
+        <div class="ls-info-icon">🎵</div>
+        <strong>Sound</strong>
+        <p>Audio recordings are converted into numeric samples and stored in bits.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-takeway-banner">
+    <span>💡</span> <strong>One sentence:</strong> Computers use 0 and 1 because electronic hardware naturally works with two simple states, and those bit patterns can represent almost anything.
+  </div>
+        `,
+    quiz: [
+      {
+        question: "What is a single 0 or 1 called?",
+        options: ["A byte", "A bit", "A pixel", "A loop"],
+        correct: 1,
+        explanation: "A bit is the smallest unit of binary information and can only be 0 or 1."
+      },
+      {
+        question: "Why do computers use binary?",
+        options: ["Because humans prefer it", "Because it matches on/off electronic states", "Because it uses more digits", "Because it is only for text"],
+        correct: 1,
+        explanation: "Computer hardware can reliably detect two states, which makes binary practical and stable."
+      },
+      {
+        question: "What decimal number does binary 101 equal?",
+        options: ["4", "5", "6", "7"],
+        correct: 1,
+        explanation: "101 in binary means 4 + 0 + 1, which equals 5."
+      }
+    ]
+  },
+  {
     id: 'boolean-logic',
     title: 'Boolean Logic',
     icon: '⚖️',
