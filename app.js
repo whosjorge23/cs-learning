@@ -126,7 +126,7 @@ class App {
       const isCompleted = this.completedLessons.includes(lesson.id);
       return `
         <div class="glass-card course-card ${isCompleted ? 'completed' : ''}" onclick="app.showLesson('${lesson.id}')">
-          ${isCompleted ? '<div class="completion-badge">Completed</div>' : ''}
+          ${isCompleted ? '<div class="completion-badge">✔️</div>' : ''}
           <div class="course-card-meta">
             <span class="course-level-badge">${lesson.level}</span>
             <span class="course-path-label">${lesson.path}</span>

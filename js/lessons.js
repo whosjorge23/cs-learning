@@ -777,6 +777,185 @@ while (isHungry) {
     ]
   },
   {
+    id: 'decomposition',
+    title: 'Decomposition',
+    icon: '🧩',
+    level: 'Beginner',
+    path: 'Computational Thinking',
+    pathDescription: 'Learn how to approach big problems like a computer scientist.',
+    shortDesc: 'Break one complex problem into smaller, solvable parts.',
+    miniPractice: {
+      title: 'Break It Down',
+      question: 'You need to build a school portal. What is the best first move?',
+      options: [
+        'Build every feature in one file',
+        'Split the project into login, courses, grades, and notifications',
+        'Pick colors and animations before planning features'
+      ],
+      correct: 1,
+      success: 'Exactly. That is decomposition: divide a big goal into smaller modules.',
+      retry: 'Look for the option that turns one big task into smaller manageable tasks.'
+    },
+    content: `
+  <div class="ls-hero">
+    <span class="ls-badge ls-badge--green">Computational Thinking</span>
+    <p class="ls-lead"><strong>Decomposition</strong> means breaking a large problem into smaller parts that are easier to understand, solve, and test.</p>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Why decomposition helps</h3>
+    <div class="ls-cards-row">
+      <div class="ls-info-card ls-info-card--blue">
+        <div class="ls-info-icon">🧠</div>
+        <strong>Less Overwhelm</strong>
+        <p>Small tasks are easier to reason about than one giant challenge.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--orange">
+        <div class="ls-info-icon">🛠️</div>
+        <strong>Easier Debugging</strong>
+        <p>If something fails, you can locate the issue in one specific part.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--green">
+        <div class="ls-info-icon">🤝</div>
+        <strong>Team Friendly</strong>
+        <p>Different people can work on different pieces at the same time.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Simple process</h3>
+    <div class="ls-numbered-list">
+      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div>Write the main goal clearly.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div>List major components needed.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div>Split each component into smaller tasks.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">4</span><div>Solve each task and combine results.</div></div>
+    </div>
+  </div>
+
+  <div class="ls-analogy-block">
+    <div class="ls-analogy-icon">🍕</div>
+    <div>
+      <div class="ls-analogy-title">Real-life analogy</div>
+      <div class="ls-analogy-text">You do not eat a whole pizza in one bite. You slice it first, then handle one slice at a time.</div>
+    </div>
+  </div>
+
+  <div class="ls-takeway-banner">
+    <span>💡</span> <strong>One sentence:</strong> Decomposition turns complexity into a checklist.
+  </div>
+        `,
+    quiz: [
+      {
+        question: "What is decomposition?",
+        options: ["Optimizing memory usage", "Breaking a big problem into smaller parts", "Hiding implementation details", "Repeating code blocks"],
+        correct: 1,
+        explanation: "Decomposition is the process of dividing a complex problem into manageable pieces."
+      },
+      {
+        question: "What is a key benefit of decomposition?",
+        options: ["It removes all testing", "It makes debugging harder", "It helps isolate and solve parts step by step", "It avoids planning"],
+        correct: 2,
+        explanation: "When work is split into parts, each part can be solved and tested more easily."
+      },
+      {
+        question: "Which approach shows decomposition?",
+        options: ["Build everything at once", "Ignore modules", "Split an app into authentication, lessons, and quiz systems", "Only design UI first"],
+        correct: 2,
+        explanation: "Dividing by feature/module is a classic decomposition strategy."
+      }
+    ]
+  },
+  {
+    id: 'abstraction',
+    title: 'Abstraction',
+    icon: '🎯',
+    level: 'Beginner',
+    path: 'Computational Thinking',
+    pathDescription: 'Learn how to approach big problems like a computer scientist.',
+    shortDesc: 'Focus on important details and ignore the rest to simplify solutions.',
+    miniPractice: {
+      title: 'Focus The Model',
+      question: 'For a bus route app, which details are most important to show first?',
+      options: [
+        'The driver favorite music',
+        'Route number, stops, and arrival times',
+        'Paint color of every bus seat'
+      ],
+      correct: 1,
+      success: 'Right. Abstraction keeps only details that matter for the goal.',
+      retry: 'Pick the option with information users need to complete the task.'
+    },
+    content: `
+  <div class="ls-hero">
+    <span class="ls-badge ls-badge--blue">Computational Thinking</span>
+    <p class="ls-lead"><strong>Abstraction</strong> means keeping the important details and hiding unnecessary complexity so a problem is easier to work with.</p>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Why abstraction helps</h3>
+    <div class="ls-cards-row">
+      <div class="ls-info-card ls-info-card--blue">
+        <div class="ls-info-icon">⚡</div>
+        <strong>Faster Decisions</strong>
+        <p>You focus only on data that affects the outcome.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--purple">
+        <div class="ls-info-icon">🧱</div>
+        <strong>Cleaner Design</strong>
+        <p>Systems become simpler when each part has a clear role.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--green">
+        <div class="ls-info-icon">🔁</div>
+        <strong>Reusable Components</strong>
+        <p>Abstract interfaces can be reused across many projects.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Common examples</h3>
+    <div class="ls-numbered-list">
+      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div><strong>Map:</strong> shows roads and landmarks, not every blade of grass.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div><strong>Function call:</strong> <code>saveFile()</code> hides low-level file operations.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div><strong>User interface:</strong> a button hides networking and database logic.</div></div>
+    </div>
+  </div>
+
+  <div class="ls-analogy-block">
+    <div class="ls-analogy-icon">🗺️</div>
+    <div>
+      <div class="ls-analogy-title">Real-life analogy</div>
+      <div class="ls-analogy-text">A subway map is not geographically perfect. It is simplified to help you travel, which is exactly the goal of abstraction.</div>
+    </div>
+  </div>
+
+  <div class="ls-takeway-banner">
+    <span>💡</span> <strong>One sentence:</strong> Abstraction removes noise so the core logic stands out.
+  </div>
+        `,
+    quiz: [
+      {
+        question: "What is abstraction in computational thinking?",
+        options: ["Adding as many details as possible", "Focusing on important details and ignoring irrelevant ones", "Splitting tasks into teams only", "Running code without testing"],
+        correct: 1,
+        explanation: "Abstraction simplifies problem-solving by keeping only what matters."
+      },
+      {
+        question: "Which example best shows abstraction?",
+        options: ["A function that exposes every internal variable", "A city map with every house interior", "A button that hides backend complexity", "Writing the same code in many places"],
+        correct: 2,
+        explanation: "A simple interface that hides complexity is a core abstraction pattern."
+      },
+      {
+        question: "Why is abstraction useful?",
+        options: ["It always makes code longer", "It helps simplify systems and reduce cognitive load", "It removes the need for structure", "It prevents modularity"],
+        correct: 1,
+        explanation: "By reducing unnecessary detail, abstraction makes systems easier to design and understand."
+      }
+    ]
+  },
+  {
     id: 'bubble-sort',
     title: 'Bubble Sort',
     icon: '🧼',
