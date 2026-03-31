@@ -305,6 +305,101 @@ pi = 3.2; // ❌ error</div>
     ]
   },
   {
+    id: 'variables-data-types',
+    title: 'Variables and Data Types',
+    icon: '🧠',
+    level: 'Beginner',
+    path: 'Foundations',
+    pathDescription: 'Start with the building blocks of how programs think and store information.',
+    shortDesc: 'Learn how variables store values and how data types define what kind of value it is.',
+    miniPractice: {
+      title: 'Type Match',
+      question: 'Which value is a string?',
+      options: ['42', '"42"', 'true'],
+      correct: 1,
+      success: 'Correct. Values in quotes are strings (text).',
+      retry: 'Look for the option wrapped in quotation marks.'
+    },
+    content: `
+  <div class="ls-hero">
+    <span class="ls-badge ls-badge--green">Fundamentals</span>
+    <p class="ls-lead"><strong>Variables</strong> are named containers for data, and <strong>data types</strong> describe what kind of data is stored.</p>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">What is a variable?</h3>
+    <div class="ls-analogy-block">
+      <div class="ls-analogy-icon">📦</div>
+      <div>
+        <div class="ls-analogy-title">Labeled storage box</div>
+        <div class="ls-analogy-text">The variable name is the label. The value inside can be a number, text, or true/false value.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Common data types</h3>
+    <div class="ls-cards-row">
+      <div class="ls-info-card ls-info-card--blue">
+        <div class="ls-info-icon">🔢</div>
+        <strong>Number</strong>
+        <p>Used for math values like <code>12</code> or <code>3.14</code>.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--orange">
+        <div class="ls-info-icon">🔤</div>
+        <strong>String</strong>
+        <p>Text values in quotes, like <code>"Hello"</code>.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--green">
+        <div class="ls-info-icon">✅</div>
+        <strong>Boolean</strong>
+        <p>Logic values: <code>true</code> or <code>false</code>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Example in code</h3>
+    <div class="ls-code-block">let age = 12;          // Number
+let name = "Amina";   // String
+let isStudent = true; // Boolean</div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Why data types matter</h3>
+    <div class="ls-numbered-list">
+      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div>They help programs know how to process values correctly.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div>They prevent errors, like adding text as if it were a number.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div>They make code easier to read and debug.</div></div>
+    </div>
+  </div>
+
+  <div class="ls-takeway-banner">
+    <span>💡</span> <strong>One sentence:</strong> A variable stores a value, and the data type tells the program how to treat that value.
+  </div>
+        `,
+    quiz: [
+      {
+        question: 'Which of these is a Boolean value?',
+        options: ['"true"', 'true', '1', '"yes"'],
+        correct: 1,
+        explanation: 'Boolean values are only true or false without quotes.'
+      },
+      {
+        question: 'What data type is "Hello World"?',
+        options: ['Number', 'String', 'Boolean', 'Array'],
+        correct: 1,
+        explanation: 'Text wrapped in quotes is a string.'
+      },
+      {
+        question: 'Why are data types useful in programming?',
+        options: ['They make all values identical', 'They help code run correctly and avoid type errors', 'They remove the need for variables', 'They only matter in design'],
+        correct: 1,
+        explanation: 'Types guide operations and reduce bugs caused by invalid value usage.'
+      }
+    ]
+  },
+  {
     id: 'boolean-logic',
     title: 'Boolean Logic',
     icon: '⚖️',
