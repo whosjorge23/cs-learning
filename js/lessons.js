@@ -305,97 +305,99 @@ pi = 3.2; // ❌ error</div>
     ]
   },
   {
-    id: 'variables-data-types',
-    title: 'Variables and Data Types',
-    icon: '🧠',
+    id: 'input-output-basics',
+    title: 'Input / Output Basics',
+    icon: '⌨️',
     level: 'Beginner',
     path: 'Foundations',
     pathDescription: 'Start with the building blocks of how programs think and store information.',
-    shortDesc: 'Learn how variables store values and how data types define what kind of value it is.',
+    shortDesc: 'Learn how programs receive input and produce output.',
     miniPractice: {
-      title: 'Type Match',
-      question: 'Which value is a string?',
-      options: ['42', '"42"', 'true'],
-      correct: 1,
-      success: 'Correct. Values in quotes are strings (text).',
-      retry: 'Look for the option wrapped in quotation marks.'
+      title: 'I/O Check',
+      question: 'If a user types their name and the app shows "Hello, Sam!", what is the output?',
+      options: ['Typing the name', 'The keyboard', '"Hello, Sam!"'],
+      correct: 2,
+      success: 'Exactly. Output is what the program sends back or displays.',
+      retry: 'Input goes in. Output comes out.'
     },
     content: `
   <div class="ls-hero">
     <span class="ls-badge ls-badge--green">Fundamentals</span>
-    <p class="ls-lead"><strong>Variables</strong> are named containers for data, and <strong>data types</strong> describe what kind of data is stored.</p>
+    <p class="ls-lead"><strong>Input</strong> is data a program receives. <strong>Output</strong> is the result a program returns.</p>
   </div>
 
   <div class="ls-section">
-    <h3 class="ls-section-title">What is a variable?</h3>
-    <div class="ls-analogy-block">
-      <div class="ls-analogy-icon">📦</div>
-      <div>
-        <div class="ls-analogy-title">Labeled storage box</div>
-        <div class="ls-analogy-text">The variable name is the label. The value inside can be a number, text, or true/false value.</div>
+    <h3 class="ls-section-title">The basic flow</h3>
+    <div class="ls-steps">
+      <div class="ls-step ls-step--1">
+        <div class="ls-step-num">1</div>
+        <div class="ls-step-label">Input</div>
+        <div class="ls-step-sub">User enters data</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--2">
+        <div class="ls-step-num">2</div>
+        <div class="ls-step-label">Process</div>
+        <div class="ls-step-sub">Program applies logic</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--3">
+        <div class="ls-step-num">3</div>
+        <div class="ls-step-label">Output</div>
+        <div class="ls-step-sub">Program shows result</div>
       </div>
     </div>
   </div>
 
   <div class="ls-section">
-    <h3 class="ls-section-title">Common data types</h3>
+    <h3 class="ls-section-title">Examples</h3>
     <div class="ls-cards-row">
       <div class="ls-info-card ls-info-card--blue">
-        <div class="ls-info-icon">🔢</div>
-        <strong>Number</strong>
-        <p>Used for math values like <code>12</code> or <code>3.14</code>.</p>
+        <div class="ls-info-icon">🧾</div>
+        <strong>Calculator</strong>
+        <p>Input: two numbers. Output: the calculated answer.</p>
       </div>
       <div class="ls-info-card ls-info-card--orange">
-        <div class="ls-info-icon">🔤</div>
-        <strong>String</strong>
-        <p>Text values in quotes, like <code>"Hello"</code>.</p>
+        <div class="ls-info-icon">🔐</div>
+        <strong>Login Form</strong>
+        <p>Input: username + password. Output: success or error message.</p>
       </div>
       <div class="ls-info-card ls-info-card--green">
-        <div class="ls-info-icon">✅</div>
-        <strong>Boolean</strong>
-        <p>Logic values: <code>true</code> or <code>false</code>.</p>
+        <div class="ls-info-icon">🌡️</div>
+        <strong>Weather App</strong>
+        <p>Input: city name. Output: temperature and forecast.</p>
       </div>
     </div>
   </div>
 
   <div class="ls-section">
-    <h3 class="ls-section-title">Example in code</h3>
-    <div class="ls-code-block">let age = 12;          // Number
-let name = "Amina";   // String
-let isStudent = true; // Boolean</div>
-  </div>
-
-  <div class="ls-section">
-    <h3 class="ls-section-title">Why data types matter</h3>
-    <div class="ls-numbered-list">
-      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div>They help programs know how to process values correctly.</div></div>
-      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div>They prevent errors, like adding text as if it were a number.</div></div>
-      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div>They make code easier to read and debug.</div></div>
-    </div>
+    <h3 class="ls-section-title">Simple code idea</h3>
+    <div class="ls-code-block">let name = prompt("Enter your name:"); // input
+alert("Hello, " + name + "!");              // output</div>
   </div>
 
   <div class="ls-takeway-banner">
-    <span>💡</span> <strong>One sentence:</strong> A variable stores a value, and the data type tells the program how to treat that value.
+    <span>💡</span> <strong>One sentence:</strong> Programs are useful because they take input, process it, and return output.
   </div>
         `,
     quiz: [
       {
-        question: 'Which of these is a Boolean value?',
-        options: ['"true"', 'true', '1', '"yes"'],
-        correct: 1,
-        explanation: 'Boolean values are only true or false without quotes.'
+        question: 'In programming, what is input?',
+        options: ['Any data sent into a program', 'Only text on the screen', 'The final answer only', 'The CPU speed'],
+        correct: 0,
+        explanation: 'Input is any data a program receives, such as typing, clicks, or sensor values.'
       },
       {
-        question: 'What data type is "Hello World"?',
-        options: ['Number', 'String', 'Boolean', 'Array'],
+        question: 'What is output?',
+        options: ['The data entered by a user', 'The result produced by a program', 'A variable name', 'A debugging tool'],
         correct: 1,
-        explanation: 'Text wrapped in quotes is a string.'
+        explanation: 'Output is what the program returns or displays after processing input.'
       },
       {
-        question: 'Why are data types useful in programming?',
-        options: ['They make all values identical', 'They help code run correctly and avoid type errors', 'They remove the need for variables', 'They only matter in design'],
+        question: 'Which pair is correct?',
+        options: ['Input: printed receipt, Output: item scanned', 'Input: button click, Output: message shown', 'Input: monitor screen, Output: keyboard press', 'Input: speaker sound, Output: microphone recording'],
         correct: 1,
-        explanation: 'Types guide operations and reduce bugs caused by invalid value usage.'
+        explanation: 'A button click enters data (input), and a shown message is the output.'
       }
     ]
   },
