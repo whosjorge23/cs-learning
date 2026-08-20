@@ -115,6 +115,42 @@ h1 {
   margin-bottom: 3rem;
 }
 
+.partner-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: -1rem 0 2rem;
+  padding: 1rem 1.25rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(16, 185, 129, 0.08));
+}
+
+.partner-banner-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.partner-banner-copy p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.partner-banner-label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .section-heading {
   display: flex;
   justify-content: space-between;
