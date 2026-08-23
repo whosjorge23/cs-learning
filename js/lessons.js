@@ -402,6 +402,131 @@ alert("Hello, " + name + "!");              // output</div>
     ]
   },
   {
+    id: 'computer-networks',
+    title: 'What Is a Computer Network?',
+    icon: '🌐',
+    level: 'Beginner',
+    path: 'Systems & Networking',
+    pathDescription: 'Learn how computers connect, share data, and move information across the internet.',
+    shortDesc: 'Understand how devices communicate using connections, packets, addresses, and rules.',
+    miniPractice: {
+      title: 'Message Delivery',
+      question: 'When one computer sends data to another over a network, what is the data usually broken into?',
+      options: ['Packets', 'Pixels', 'Loops'],
+      correct: 0,
+      success: 'Exactly. Networks usually send data in small chunks called packets.',
+      retry: 'Think about how large messages are split so they can travel more easily.'
+    },
+    content: `
+  <div class="ls-hero">
+    <span class="ls-badge ls-badge--blue">Systems Basics</span>
+    <p class="ls-lead">A <strong>computer network</strong> is a group of devices connected so they can share data, resources, and services.</p>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Why networks matter</h3>
+    <div class="ls-cards-row">
+      <div class="ls-info-card ls-info-card--blue">
+        <div class="ls-info-icon">💬</div>
+        <strong>Communication</strong>
+        <p>Networks let people send messages, emails, and video calls.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--green">
+        <div class="ls-info-icon">📁</div>
+        <strong>Sharing</strong>
+        <p>Devices can share files, printers, and internet access.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--orange">
+        <div class="ls-info-icon">☁️</div>
+        <strong>Online Services</strong>
+        <p>Websites, games, and cloud apps all depend on networks.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">The basic idea</h3>
+    <div class="ls-steps">
+      <div class="ls-step ls-step--1">
+        <div class="ls-step-num">1</div>
+        <div class="ls-step-label">Sender</div>
+        <div class="ls-step-sub">A device creates data</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--2">
+        <div class="ls-step-num">2</div>
+        <div class="ls-step-label">Network</div>
+        <div class="ls-step-sub">Routers move the data</div>
+      </div>
+      <div class="ls-step-arrow">→</div>
+      <div class="ls-step ls-step--3">
+        <div class="ls-step-num">3</div>
+        <div class="ls-step-label">Receiver</div>
+        <div class="ls-step-sub">Another device gets it</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Key networking words</h3>
+    <div class="ls-numbered-list">
+      <div class="ls-nl-item"><span class="ls-nl-num">1</span><div><strong>Packet:</strong> a small piece of data sent across the network.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">2</span><div><strong>IP address:</strong> a device's network address, like a delivery location.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">3</span><div><strong>Router:</strong> a device that forwards packets toward their destination.</div></div>
+      <div class="ls-nl-item"><span class="ls-nl-num">4</span><div><strong>Protocol:</strong> a shared set of rules for communication.</div></div>
+    </div>
+  </div>
+
+  <div class="ls-analogy-block">
+    <div class="ls-analogy-icon">📦</div>
+    <div>
+      <div class="ls-analogy-title">Think of a delivery system</div>
+      <div class="ls-analogy-text">Your message is packed into boxes called packets, labeled with an address, and passed through routes until it reaches the correct house.</div>
+    </div>
+  </div>
+
+  <div class="ls-section">
+    <h3 class="ls-section-title">Network vs internet</h3>
+    <div class="ls-cards-row">
+      <div class="ls-info-card ls-info-card--purple">
+        <div class="ls-info-icon">🏠</div>
+        <strong>Local Network</strong>
+        <p>A small connection, like devices linked in one home, school, or office.</p>
+      </div>
+      <div class="ls-info-card ls-info-card--red">
+        <div class="ls-info-icon">🌍</div>
+        <strong>Internet</strong>
+        <p>A huge network of networks connecting devices around the world.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ls-takeway-banner">
+    <span>💡</span> <strong>One sentence:</strong> Networks move packets between devices using addresses and communication rules.
+  </div>
+        `,
+    quiz: [
+      {
+        question: 'What is the best definition of a computer network?',
+        options: ['A single powerful computer', 'A group of connected devices that share data', 'Only the internet', 'A type of programming language'],
+        correct: 1,
+        explanation: 'A network is made of connected devices that can communicate and share resources.'
+      },
+      {
+        question: 'What does a router mainly do?',
+        options: ['Writes code', 'Stores passwords', 'Moves packets toward their destination', 'Draws website layouts'],
+        correct: 2,
+        explanation: 'Routers help direct packets across networks so they can reach the right place.'
+      },
+      {
+        question: 'What is the internet?',
+        options: ['One computer in a data center', 'A single cable', 'A network of networks', 'A type of file'],
+        correct: 2,
+        explanation: 'The internet connects many separate networks together into one global system.'
+      }
+    ]
+  },
+  {
     id: 'boolean-logic',
     title: 'Boolean Logic',
     icon: '⚖️',
